@@ -18,7 +18,7 @@ A The Ogres of Feralas |QID|2975| |N|Rok - (75.5, 43.7)| |Z|Feralas|
 R Shyrka Wolfrunner |N|(74.5, 43.3)| |O| |C|Hunter| |Z|Feralas|
 t Attack mobs with it to learn [Bite (Rank 6)] |N|Cast [Tame Beast] on a Longtooth Runner to tame it - (70.6, 41.5)| |C|Hunter| |Z|Feralas|
 N Click here for more info about pet training |N|(70.6, 41.5)| |C|Hunter| |Z|Feralas|
-t Training (17266) |N|Shyrka Wolfrunner - (74.5, 43.3)| |C|Hunter| |Z|Feralas|
+t Train your class spells |N|Shyrka Wolfrunner - (74.5, 43.3)| |C|Hunter| |Z|Feralas|
 C Look out for the [Distress Beacon] drop as you quest throughout Feralas |QID|2766| |L|8705 1| |N|Look out for the [Distress Beacon] drop as you quest throughout Feralas| |O| |Z|Feralas|
 A Find OOX-22/FE! |QID|2766| |N|Look out for the [Distress Beacon] drop as you quest throughout Feralas| |O| |Z|Feralas|
 N Woodpaw Trappers cast [Net] which immobilizes movement for 10 seconds |N|(73.2, 36.3)| |Z|Feralas|

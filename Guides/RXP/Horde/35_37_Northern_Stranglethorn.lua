@@ -25,7 +25,7 @@ R Innkeeper Gryshka |N|(54.1, 68.4)| |Z|Orgrimmar|
 h Orgrimmar |N|Set hearth in Orgrimmar (54.1, 68.4)| |Z|Orgrimmar|
 R Go up the Zeppelin Tower |N|(50.8, 13.8)| |Z|Durotar|
 h Grom'Gol Base Camp |N|Set hearth in Grom'Gol Base Camp (31.5, 29.8)| |C|Mage| |Z|Stranglethorn Vale|
-t Training (3567) |N|Innkeeper Thulbek - (31.5, 29.8)| |C|Mage| |Z|Stranglethorn Vale|
+t Train Teleport: Orgrimmar |N|Innkeeper Thulbek - (31.5, 29.8)| |C|Mage| |Z|Stranglethorn Vale|
 A Mok'thardin's Enchantment |QID|570| |N|Far Seer Mok'thardin - (32.1, 29.2)| |Z|Stranglethorn Vale|
 A The Defense of Grom'gol |QID|568| |N|Commander Aggro'gosh - (32.2, 28.9)| |Z|Stranglethorn Vale|
 A The Vile Reef |QID|629| |N|Kin'weelay - (32.2, 27.8)| |Z|Stranglethorn Vale|
@@ -162,9 +162,9 @@ T Supply and Demand |QID|575| |N|Drizzlik - (28.3, 77.6)| |O| |Z|Stranglethorn V
 B Buy [Greater Healing Potions] from him if they're up |N|Glyx - (28.1, 78.1)| |Z|Stranglethorn Vale|
 B Stock up on [Flash Powder] and [Poisons] |N|Sly - (28.4, 76.8)| |C|Rogue| |Z|Stranglethorn Vale|
 t Train your class spells |N|Loganaar - (52.5, 40.6)| |C|Druid| |Z|Moonglade|
-t Training (3567) |C|Mage| |Z|Moonglade|
+t Train Teleport: Orgrimmar |C|Mage| |Z|Moonglade|
 H Orgrimmar |N|Hearth to Orgrimmar| |O| |Z|Moonglade|
-t Training (3567) |O| |C|Mage| |Z|Moonglade|
+t Train Teleport: Orgrimmar |O| |C|Mage| |Z|Moonglade|
 B Sell your junk, then restock on food and water if necessary |N|Barkeep Morag - (54.6, 67.7)| |C|!Rogue/!Warrior| |Z|Orgrimmar|
 B Sell your junk, then restock on food if necessary |N|Barkeep Morag - (54.6, 67.7)| |C|Rogue/Warrior| |Z|Orgrimmar|
 R Karus |N|(49.6, 69.1)| |Z|Orgrimmar|

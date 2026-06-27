@@ -28,7 +28,7 @@ R Qeeju |N|(73.4, 61.0)| |C|Hunter| |Z|Ashenvale|
 A Ashenvale Outrunners |QID|6503| |N|Kuray'bin - (71.1, 68.1)| |Z|Ashenvale|
 C Sharptalon. Loot him for [Sharptalon's Claw] and use it to start the quest |QID|2| |L|16305 1| |N|Be careful! Sharptalon is level 31 and patrols around. You can kite him back to Splintertree Post or the Forsaken Camp if you're struggling to kill him. If you do this, make sure you do 50%+ damage to get credit. You can also do this quest later (75.2, 71.9)| |O| |Z|Ashenvale|
 A Sharptalon's Claw |QID|2| |N|Be careful! Sharptalon is level 31 and patrols around. You can kite him back to Splintertree Post or the Forsaken Camp if you're struggling to kill him. If you do this, make sure you do 50%+ damage to get credit. You can also do this quest later - (75.2, 71.9)| |O| |Z|Ashenvale|
-t Training (19885) |O| |C|Hunter| |Z|Ashenvale|
+t Train Track Hidden |O| |C|Hunter| |Z|Ashenvale|
 N They are stealthed |N|(73.8, 75.0)| |Z|Ashenvale|
 C Ashenvale Outrunners |QID|6503| |OIDX|1| |N|Kill Ashenvale Outrunner (73.8, 75.0)| |Z|Ashenvale|
 C Sharptalon. Loot him for [Sharptalon's Claw] and use it to start the quest |QID|2| |L|16305 1| |N|Be careful! Sharptalon is level 31 and patrols around. You can kite him back to Splintertree Post or the Forsaken Camp if you're struggling to kill him. If you do this, make sure you do 50%+ damage to get credit. You can also do this quest later (71.5, 70.1)| |Z|Ashenvale|

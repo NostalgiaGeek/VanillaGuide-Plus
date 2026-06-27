@@ -295,9 +295,9 @@ t Train Staves |N|Hanashi - (81.5, 19.6)| |C|Hunter/Orc/Hunter/Priest| |R|Troll|
 t Train Bows |N|Hanashi - (81.5, 19.6)| |C|Hunter| |R|Tauren| |Z|Orgrimmar|
 t Train Two-Handed Axes & Staves |N|Hanashi - (81.5, 19.6)| |C|Warrior/Tauren/Warrior/Undead/Warrior| |R|Troll| |Z|Orgrimmar|
 B Collect Reinforced Bow (1) |L|3026 1| |N|Zendo'jian. Buy a [Reinforced Bow] from him - (81.2, 18.7)| |C|Hunter| |Z|Orgrimmar|
-t Training (227) |N|Zendo'jian. Buy a [Reinforced Bow] from him - (81.2, 18.7)| |C|Hunter| |Z|Orgrimmar|
+t Train your class spells |N|Zendo'jian. Buy a [Reinforced Bow] from him - (81.2, 18.7)| |C|Hunter| |Z|Orgrimmar|
 B Collect Battle Axe (1) |L|926 1| |N|Zendo'jian. Buy a [Battle Axe] from him - (81.2, 18.7)| |C|Warrior| |Z|Orgrimmar|
-t Training (227) |N|Zendo'jian. Buy a [Battle Axe] from him - (81.2, 18.7)| |C|Warrior| |Z|Orgrimmar|
+t Train your class spells |N|Zendo'jian. Buy a [Battle Axe] from him - (81.2, 18.7)| |C|Warrior| |Z|Orgrimmar|
 H Crossroads |N|Hearth to Crossroads| |O| |Z|Orgrimmar|
 F Fly to The Crossroads |N|Doras - (45.1, 63.9)| |O| |Z|Orgrimmar|
 B Sell your junk, then restock on food and water if necessary |N|Innkeeper Boorand - (52.0, 29.9)| |C|!Rogue/!Warrior| |Z|The Barrens|

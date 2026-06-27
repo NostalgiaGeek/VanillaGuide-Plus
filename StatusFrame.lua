@@ -2,6 +2,21 @@ local ICONSIZE, CHECKSIZE, GAP = 16, 16, 8
 local NAVBTNSIZE = 14
 local FIXEDWIDTH = ICONSIZE + CHECKSIZE + GAP * 4 - 4 + NAVBTNSIZE * 2 + 6 -- +prev/next buttons
 
+local professions = {
+	["mining"] = true,
+	["herbalism"] = true,
+	["skinning"] = true,
+	["alchemy"] = true,
+	["blacksmithing"] = true,
+	["enchanting"] = true,
+	["engineering"] = true,
+	["leatherworking"] = true,
+	["tailoring"] = true,
+	["cooking"] = true,
+	["first aid"] = true,
+	["fishing"] = true,
+}
+
 local TurtleGuide = TurtleGuide
 local ww = WidgetWarlock
 
@@ -217,6 +232,36 @@ function TurtleGuide:UpdateStatusFrame()
 	local nextstep
 	self.updatedelay = nil
 
+	-- Reset training steps if the player unlearned the profession
+	if self.actions then
+		for i, action in ipairs(self.actions) do
+			if action == "TRAIN" then
+				local questName = self.quests[i]
+				local cleanName = string.gsub(questName, "@.*@", "")
+				
+				-- Extract core skill name to check if it's a profession
+				local _, _, parsedName = string.find(cleanName, "%[([^%]]+)%]")
+				if not parsedName then
+					parsedName = cleanName
+				end
+				if parsedName then
+					parsedName = string.gsub(parsedName, "^Train%s+", "")
+					parsedName = string.gsub(parsedName, "^Training%s+", "")
+					parsedName = string.gsub(parsedName, "%s*%(Rank%s*%d+%)", "")
+					parsedName = string.gsub(parsedName, "%s*%(.*%)", "")
+					parsedName = string.gsub(parsedName, "%s*Part%s*%d+", "")
+					parsedName = TurtleGuide.trim(parsedName)
+					parsedName = string.lower(parsedName)
+				end
+				
+				-- Only reset if it is a profession (since class spells cannot be unlearned and generic steps shouldn't reset)
+				if professions[parsedName] and self.turnedin[questName] and not self:IsTrainingCompleted(cleanName) then
+					self.turnedin[questName] = nil
+				end
+			end
+		end
+	end
+
 	for i in ipairs(self.actions) do
 		local name = self.quests[i]
 		if not self.turnedin[name] and not nextstep then
@@ -266,6 +311,8 @@ function TurtleGuide:UpdateStatusFrame()
 					end
 				end
 			end
+
+			if action == "TRAIN" and self:IsTrainingCompleted(name) then return self:SetTurnedIn(i, true) end
 
 			if action == "PET" and self.db.char.petskills[name] then return self:SetTurnedIn(i, true) end
 

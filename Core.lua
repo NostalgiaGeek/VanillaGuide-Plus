@@ -785,6 +785,7 @@ function TurtleGuide:IsTrainingCompleted(stepName)
     end
 
     if name then
+        name = string.gsub(name, "@.*@", "")
         name = string.gsub(name, "^Train%s+", "")
         name = string.gsub(name, "^Training%s+", "")
         name = string.gsub(name, "%s*%(Rank%s*%d+%)", "")

@@ -67,7 +67,7 @@ T Gelkis Alliance |QID|1368| |N|Uthek - (36.3, 79.2)| |Z|Desolace|
 A Stealing Supplies |QID|1370| |N|Uthek - (36.3, 79.2)| |Z|Desolace|
 A Hand of Iruxos |QID|5381| |N|Taiga - (25.8, 68.2)| |Z|Desolace|
 h Shadowprey Village |N|Set hearth in Shadowprey Village (24.1, 68.2)| |O| |C|Mage| |Z|Desolace|
-t Training (3566) |N|Innkeeper Sikewa - (24.1, 68.2)| |O| |C|Mage| |Z|Desolace|
+t Train Teleport: Thunder Bluff |N|Innkeeper Sikewa - (24.1, 68.2)| |O| |C|Mage| |Z|Desolace|
 A Clam Bait |QID|6142| |N|Mai'Lahii - (22.7, 72.1)| |Z|Desolace|
 A Other Fish to Fry |QID|6143| |N|Drulzegar - (23.3, 72.9)| |Z|Desolace|
 f Get the Shadowprey Village flight path |N|Thalon at the end of the dock - (21.6, 74.1)| |Z|Desolace|
@@ -129,7 +129,7 @@ A Hunting in Stranglethorn |QID|5763| |N|Roon - (25.1, 72.2)| |Z|Desolace|
 T Hand of Iruxos |QID|5381| |N|Return to Taiga - (25.8, 68.2)| |Z|Desolace|
 T Other Fish to Fry |QID|6143| |N|Return to Drulzegar - (23.4, 72.8)| |Z|Desolace|
 T Clam Bait |QID|6142| |N|Return to Mai'Lahii - (22.7, 72.1)| |Z|Desolace|
-t Training (3566) |C|Mage| |Z|Desolace|
+t Train Teleport: Thunder Bluff |C|Mage| |Z|Desolace|
 F Fly to Thunder Bluff |N|Thalon at the end of the dock - (21.6, 74.1)| |O| |Z|Desolace|
 H Thunder Bluff |N|Hearth to Thunder Bluff| |Z|Desolace|
 A Compendium of the Fallen |QID|1049| |N|Sage - (34.4, 46.9) (SM Dungeon Quest)| |R|!Undead| |D|SM| |Z|Thunder Bluff|

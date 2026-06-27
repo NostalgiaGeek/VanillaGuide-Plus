@@ -32,12 +32,12 @@ N Buy [Razor Arrows] from her |N|(47.0, 45.7)| |C|Hunter| |Z|Thunder Bluff|
 B Kuna |L|3030 1800| |N|Kuna - (47.0, 45.7)| |C|Hunter| |Z|Thunder Bluff|
 F Fly to Camp Taurajo |N|Tal - (47.0, 49.8)| |Z|Thunder Bluff|
 A A New Ore Sample |QID|1153| |N|Tatternack - (45.1, 57.7)| |Z|The Barrens|
-t Training (783) |N|Mangletooth - (44.5, 59.3)| |C|Druid| |Z|The Barrens|
-t Training (2645) |N|Mangletooth - (44.5, 59.3)| |C|Shaman| |Z|The Barrens|
-t Training (5118) |N|Mangletooth - (44.5, 59.3)| |C|Hunter| |Z|The Barrens|
-t Training (783) |N|Mangletooth - (44.5, 59.3)| |O| |C|Druid| |Z|The Barrens|
-t Training (2645) |N|Mangletooth - (44.5, 59.3)| |O| |C|Shaman| |Z|The Barrens|
-t Training (5118) |N|Mangletooth - (44.5, 59.3)| |O| |C|Hunter| |Z|The Barrens|
+t Train Travel Form (Shapeshift) |N|Mangletooth - (44.5, 59.3)| |C|Druid| |Z|The Barrens|
+t Train Ghost Wolf |N|Mangletooth - (44.5, 59.3)| |C|Shaman| |Z|The Barrens|
+t Train Aspect of the Cheetah |N|Mangletooth - (44.5, 59.3)| |C|Hunter| |Z|The Barrens|
+t Train Travel Form (Shapeshift) |N|Mangletooth - (44.5, 59.3)| |O| |C|Druid| |Z|The Barrens|
+t Train Ghost Wolf |N|Mangletooth - (44.5, 59.3)| |O| |C|Shaman| |Z|The Barrens|
+t Train Aspect of the Cheetah |N|Mangletooth - (44.5, 59.3)| |O| |C|Hunter| |Z|The Barrens|
 R Travel toward Brine |N|(43.4, 77.4)| |O| |C|Shaman| |Z|The Barrens|
 T Call of Water |QID|1534| |N|Brine - (43.4, 77.4)| |C|Shaman| |Z|The Barrens|
 A Call of Water |QID|220| |N|Brine - (43.4, 77.4)| |C|Shaman| |Z|The Barrens|
@@ -102,7 +102,7 @@ B Buy [Healing Potions], [Scrolls] and [Liferoot] from him if they're up |N|Mont
 N Buy one or more [Rune of Teleportation] from him |N|(45.1, 50.8)| |C|Mage| |Z|Thousand Needles|
 B Montarr |L|17031 1| |N|Montarr - (45.1, 50.8)| |C|Mage| |Z|Thousand Needles|
 h Freewind Post |N|Set hearth in Freewind Post (46.1, 51.5)| |O| |C|Mage| |Z|Thousand Needles|
-t Training (3566) |N|Innkeeper Abeqwa - (46.1, 51.5)| |O| |C|Mage| |Z|Thousand Needles|
+t Train Teleport: Thunder Bluff |N|Innkeeper Abeqwa - (46.1, 51.5)| |O| |C|Mage| |Z|Thousand Needles|
 R Enter Roguefeather Den |N|(27.3, 51.3)| |Z|Thousand Needles|
 N This quest is VERY HARD. Group up or skip it if you can't solo it |N|(25.9, 55.2)| |Z|Thousand Needles|
 N CLICK HERE for a visual reference if you think it's doable |N|(25.9, 55.2)| |Z|Thousand Needles|
@@ -151,7 +151,7 @@ N Be careful as Boiling Elementals cast [Steam Jet], reducing your chance to hit
 N Be careful as Scalding Elementals cast [Scald], instantly dealing 150 fire damage and stunning you for 4 seconds |N|(36.0, 37.4)| |Z|Thousand Needles|
 C Sacred Fire |QID|5062| |OIDX|1| |N|the Incendia Agave Plants on the ground and underwater (36.0, 37.4)| |Z|Thousand Needles|
 H Thunder Bluff |N|Hearth to Thunder Bluff| |O| |Z|Thousand Needles|
-t Training (3566) |O| |C|Mage| |Z|Thousand Needles|
+t Train Teleport: Thunder Bluff |O| |C|Mage| |Z|Thousand Needles|
 t Train your class spells |N|Shymm - (22.7, 14.5)| |C|Mage| |Z|Thunder Bluff|
 B Sell your junk, then restock on food and water if necessary |N|Innkeeper Pala - (45.8, 64.7)| |C|!Rogue/!Warrior| |Z|Thunder Bluff|
 B Sell your junk, then restock on food if necessary |N|Innkeeper Pala - (45.8, 64.7)| |C|Rogue/Warrior| |Z|Thunder Bluff|

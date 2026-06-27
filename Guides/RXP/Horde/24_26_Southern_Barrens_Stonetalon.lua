@@ -217,12 +217,12 @@ T Letter to Jin'Zil |QID|1060| |N|Jin'Zil - (74.5, 97.9)| |O| |Z|Stonetalon Moun
 T Shredding Machines |QID|1068| |N|Seereth - (35.3, 27.9)| |Z|The Barrens|
 t Train your class spells |N|Loganaar - (52.5, 40.6)| |C|Druid| |Z|Moonglade|
 F Fly to The Crossroads |N|Bragok - (63.1, 37.2)| |O| |Z|The Barrens|
-t Training (425343) |N|Bragok - (63.1, 37.2)| |O| |C|Shaman| |Z|The Barrens|
+t Train your class spells |N|Bragok - (63.1, 37.2)| |O| |C|Shaman| |Z|The Barrens|
 H Crossroads |N|Hearth to Crossroads| |O| |C|!Mage| |Z|The Barrens|
-t Training (425343) |O| |C|Shaman| |Z|The Barrens|
+t Train your class spells |O| |C|Shaman| |Z|The Barrens|
 B Sell your junk, then restock on food and water if necessary |N|Innkeeper Boorand - (52.0, 29.9)| |C|!Rogue/!Warrior| |Z|The Barrens|
 B Sell your junk, then restock on food if necessary |N|Innkeeper Boorand - (52.0, 29.9)| |C|Rogue/Warrior| |Z|The Barrens|
-t Training (425343) |N|Innkeeper Boorand - (52.0, 29.9)| |C|Shaman| |Z|The Barrens|
+t Train your class spells |N|Innkeeper Boorand - (52.0, 29.9)| |C|Shaman| |Z|The Barrens|
 F Fly to Orgrimmar |N|Devrak - (51.5, 30.3)| |C|!Mage| |Z|The Barrens|
 N Buy the [Shredder Operating Manual Pages] from the Auction House if they're available |N|(55.6, 62.9)| |Z|Orgrimmar|
 B Thathung |L|16645 1| |N|Thathung - (55.6, 62.9)| |Z|Orgrimmar|

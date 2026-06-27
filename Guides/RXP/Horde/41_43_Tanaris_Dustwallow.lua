@@ -20,7 +20,7 @@ A Gadgetzan Water Survey |QID|992| |N|Fizzledowser - (50.2, 27.5)| |Z|Tanaris|
 R Laziphus |N|(52.3, 28.0)| |O| |C|Hunter| |Z|Tanaris|
 t Attack mobs with it to learn [Claw (Rank 6)] |N|Cast [Tame Beast] on a Scorpid Hunter to tame it - (54.1, 32.2)| |C|Hunter| |Z|Tanaris|
 N Click here for more info about pet training |N|(54.1, 32.2)| |C|Hunter| |Z|Tanaris|
-t Training (2976) |N|Laziphus - (52.3, 28.0)| |C|Hunter| |Z|Tanaris|
+t Train your class spells |N|Laziphus - (52.3, 28.0)| |C|Hunter| |Z|Tanaris|
 C Wastewander Justice |QID|1690| |OIDX|1| |N|Wastewander Bandits and Wastewander Thieves in the Noonshade Ruins en route to Steamwheedle Port. Loot them for their Water Pouches (60.5, 23.4)| |O| |Z|Tanaris|
 C Wastewander Bandits and Wastewander Thieves in the Noonshade Ruins en route to Steamwheedle Port. Loot them for their Water Pouches |L|8483 10| |N|Wastewander Bandits and Wastewander Thieves in the Noonshade Ruins en route to Steamwheedle Port. Loot them for their Water Pouches - (60.5, 23.4)| |O| |Z|Tanaris|
 C Wastewander Justice |QID|1690| |OIDX|1| |N|Wastewander Bandits and Wastewander Thieves in the Noonshade Ruins en route to Steamwheedle Port. Loot them for their Water Pouches (60.5, 23.4)| |O| |Z|Tanaris|

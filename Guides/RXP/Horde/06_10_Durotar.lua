@@ -108,21 +108,21 @@ N Save 2 silver for your class spells! |N|(51.5, 41.6)| |C|Priest| |Z|Durotar|
 B Vendor Trash |N|Innkeeper Grosk - (51.5, 41.6)| |Z|Durotar|
 h Razor Hill |N|Set hearth in Razor Hill (51.5, 41.6)| |Z|Durotar|
 T A Peon's Burden |QID|2161| |N|Innkeeper Grosk - (51.5, 41.6)| |Z|Durotar|
-t Training (6760) |N|Innkeeper Grosk - (51.5, 41.6)| |C|Rogue| |Z|Durotar|
-t Training (139) |N|Innkeeper Grosk - (51.5, 41.6)| |C|Priest| |Z|Durotar|
-t Training (980) |N|Innkeeper Grosk - (51.5, 41.6)| |C|Warlock| |Z|Durotar|
-t Training (8044) |N|Innkeeper Grosk - (51.5, 41.6)| |C|Shaman| |Z|Durotar|
-t Training (284) |N|Innkeeper Grosk - (51.5, 41.6)| |C|Warrior| |Z|Durotar|
+t Train Eviscerate (Rank 2) |N|Innkeeper Grosk - (51.5, 41.6)| |C|Rogue| |Z|Durotar|
+t Train Renew (Rank 1) |N|Innkeeper Grosk - (51.5, 41.6)| |C|Priest| |Z|Durotar|
+t Train Curse of Agony (Rank 1) |N|Innkeeper Grosk - (51.5, 41.6)| |C|Warlock| |Z|Durotar|
+t Train Earth Shock (Rank 2) |N|Innkeeper Grosk - (51.5, 41.6)| |C|Shaman| |Z|Durotar|
+t Train Heroic Strike (Rank 2) |N|Innkeeper Grosk - (51.5, 41.6)| |C|Warrior| |Z|Durotar|
 N Buy [Ice Cold Milk] from him |N|(51.5, 41.6)| |O| |C|Mage/Warlock/Priest/Shaman/Druid| |Z|Durotar|
 N Buy [Haunch of Meat] from him |N|(51.5, 41.6)| |O| |C|Rogue/Warrior| |Z|Durotar|
 B Vendor Trash |N|Innkeeper Grosk - (51.5, 41.6)| |O| |C|!Mage/!Hunter/!Druid| |Z|Durotar|
 h Razor Hill |N|Set hearth in Razor Hill (51.5, 41.6)| |O| |C|!Mage/!Hunter/!Druid| |Z|Durotar|
 T A Peon's Burden |QID|2161| |N|Innkeeper Grosk - (51.5, 41.6)| |O| |C|!Mage/!Hunter/!Druid| |Z|Durotar|
-t Training (6760) |N|Innkeeper Grosk - (51.5, 41.6)| |O| |C|Rogue| |Z|Durotar|
-t Training (139) |N|Innkeeper Grosk - (51.5, 41.6)| |O| |C|Priest| |Z|Durotar|
-t Training (980) |N|Innkeeper Grosk - (51.5, 41.6)| |O| |C|Warlock| |Z|Durotar|
-t Training (8044) |N|Innkeeper Grosk - (51.5, 41.6)| |O| |C|Shaman| |Z|Durotar|
-t Training (284) |N|Innkeeper Grosk - (51.5, 41.6)| |O| |C|Warrior| |Z|Durotar|
+t Train Eviscerate (Rank 2) |N|Innkeeper Grosk - (51.5, 41.6)| |O| |C|Rogue| |Z|Durotar|
+t Train Renew (Rank 1) |N|Innkeeper Grosk - (51.5, 41.6)| |O| |C|Priest| |Z|Durotar|
+t Train Curse of Agony (Rank 1) |N|Innkeeper Grosk - (51.5, 41.6)| |O| |C|Warlock| |Z|Durotar|
+t Train Earth Shock (Rank 2) |N|Innkeeper Grosk - (51.5, 41.6)| |O| |C|Shaman| |Z|Durotar|
+t Train Heroic Strike (Rank 2) |N|Innkeeper Grosk - (51.5, 41.6)| |O| |C|Warrior| |Z|Durotar|
 t Train your class spells |N|Tarshaw - (54.2, 42.5)| |C|Warrior| |Z|Durotar|
 t Train your class spells |N|Swart - (54.4, 42.6)| |C|Shaman| |Z|Durotar|
 t Train your class spells |N|Dhugru - (54.4, 41.2)| |C|Warlock| |Z|Durotar|

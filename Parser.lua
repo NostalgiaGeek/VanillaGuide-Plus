@@ -99,6 +99,9 @@ local function StepParse(guide)
 	local i, haserrors = 1, false
 	local guidet = TurtleGuide.split("\r\n", guide)
 
+	local seenObjectives = {}
+	local lastHearthLocation = nil
+
 	local function matchFilter(filter, myValue)
 		if not filter then return true end
 		local components = TurtleGuide.split("/", filter)
@@ -152,11 +155,38 @@ local function StepParse(guide)
 			local _, _, action, quest, tag = string.find(text, "^(%a) ([^|]*)(.*)")
 			if action and actiontypes[action] then
 				quest = TurtleGuide.trim(quest)
-				quest = quest .. "@" .. uniqueid .. "@"
-				uniqueid = uniqueid + 1
-				actions[i], quests[i], tags[i] = actiontypes[action], quest, tag
-				i = i + 1
-				haserrors = DebugQuestObjective(text, action, quest, accepts, turnins, completes) or haserrors
+				
+				-- Deduplicate duplicate ACCEPT (A), TURNIN (T), and SETHEARTH (h) objectives
+				local cleanQuest = quest
+				local qid = nil
+				if tag then
+					local _, _, qid_val = string.find(tag, "|QID|(%d+)|")
+					qid = qid_val
+				end
+				
+				local isDuplicate = false
+				if action == "A" or action == "T" then
+					local key = action .. ":" .. (qid or cleanQuest)
+					if seenObjectives[key] then
+						isDuplicate = true
+					else
+						seenObjectives[key] = true
+					end
+				elseif action == "h" then
+					if cleanQuest == lastHearthLocation then
+						isDuplicate = true
+					else
+						lastHearthLocation = cleanQuest
+					end
+				end
+				
+				if not isDuplicate then
+					quest = quest .. "@" .. uniqueid .. "@"
+					uniqueid = uniqueid + 1
+					actions[i], quests[i], tags[i] = actiontypes[action], quest, tag
+					i = i + 1
+					haserrors = DebugQuestObjective(text, action, quest, accepts, turnins, completes) or haserrors
+				end
 			end
 		end
 	end

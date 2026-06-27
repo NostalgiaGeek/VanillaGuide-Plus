@@ -72,7 +72,7 @@ N [Filled Vial Labeled #4] |N|(61.5, 37.0)| |Z|Winterspring|
 R Azzleby |N|(60.4, 37.9)| |O| |C|Hunter| |Z|Winterspring|
 t Attack mobs with it to learn [Claw (Rank 7)] |N|Cast [Tame Beast] on a Shardtooth Bear or Winterspring Owl to tame it - (45.5, 37.4)| |C|Hunter| |Z|Winterspring|
 N Click here for more info about pet training |N|(45.5, 37.4)| |C|Hunter| |Z|Winterspring|
-t Training (2977) |N|Azzleby - (60.4, 37.9)| |C|Hunter| |Z|Winterspring|
+t Train your class spells |N|Azzleby - (60.4, 37.9)| |C|Hunter| |Z|Winterspring|
 f Get the Everlook Flight Path |N|Yugrek - (60.5, 36.3)| |Z|Winterspring|
 F Fly to Felwood |N|Yugrek - (60.5, 36.3)| |Z|Winterspring|
 T Well of Corruption |QID|4505| |N|Winna - (34.2, 52.3)| |Z|Felwood|
@@ -85,7 +85,7 @@ T Cleansing Felwood |QID|4102| |N|Maybess - (46.6, 83.0)| |Z|Felwood|
 N Select the option: "I need a Cenarion beacon." |N|(46.6, 83.0)| |Z|Felwood|
 C Maybess again to receive a [Cenarion Beacon] |L|11511 1| |N|Maybess again to receive a [Cenarion Beacon] - (46.6, 83.0)| |Z|Felwood|
 H Orgrimmar |N|Hearth to Orgrimmar| |Z|Felwood|
-t Training (3567) |C|Mage| |Z|Felwood|
+t Train Teleport: Orgrimmar |C|Mage| |Z|Felwood|
 B Sell your junk, then restock on food and water if necessary |N|Barkeep Morag - (54.6, 67.7)| |C|!Rogue/!Warrior| |Z|Orgrimmar|
 B Sell your junk, then restock on food if necessary |N|Barkeep Morag - (54.6, 67.7)| |C|Rogue/Warrior| |Z|Orgrimmar|
 N Buy one [Mithril Casing] from the Auction House |N|(55.6, 62.9)| |Z|Orgrimmar|

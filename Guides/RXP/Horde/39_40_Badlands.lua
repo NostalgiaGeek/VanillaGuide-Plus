@@ -79,9 +79,9 @@ A Report to Helgrum |QID|1420| |N|Neeka - (6.5, 47.2)| |Z|Badlands|
 T Badlands Reagent Run |QID|2258| |N|Jarkal - (2.4, 46.0)| |Z|Badlands|
 T Broken Alliances |QID|782| |N|Gorn - (2.9, 45.6)| |Z|Badlands|
 t Train your class spells |N|Loganaar - (52.5, 40.6)| |C|Druid| |Z|Moonglade|
-t Training (3567) |C|Mage| |Z|Moonglade|
+t Train Teleport: Orgrimmar |C|Mage| |Z|Moonglade|
 H Orgrimmar |N|Hearth to Orgrimmar| |O| |Z|Moonglade|
-t Training (3567) |O| |C|Mage| |Z|Moonglade|
+t Train Teleport: Orgrimmar |O| |C|Mage| |Z|Moonglade|
 B Sell your junk, then restock on food and water if necessary |N|Barkeep Morag - (54.6, 67.7)| |C|!Rogue/!Warrior| |Z|Orgrimmar|
 B Sell your junk, then restock on food if necessary |N|Barkeep Morag - (54.6, 67.7)| |C|Rogue/Warrior| |Z|Orgrimmar|
 

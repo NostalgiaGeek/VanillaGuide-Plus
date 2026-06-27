@@ -4,9 +4,9 @@ return [[
 
 N 48-49 The Hinterlands |N|Converted from RestedXP guide|
 
-t Training (3563) |O| |C|Mage|
-t Training (3563) |N|Go up the Zeppelin Tower - (50.8, 13.8)| |C|Mage| |Z|Durotar|
-t Training (3563) |C|Mage| |Z|Durotar|
+t Train Teleport: Undercity |O| |C|Mage|
+t Train Teleport: Undercity |N|Go up the Zeppelin Tower - (50.8, 13.8)| |C|Mage| |Z|Durotar|
+t Train Teleport: Undercity |C|Mage| |Z|Durotar|
 t Train [Teleport: Undercity] |N|Lexington - (84.2, 15.6)| |C|Mage| |Z|Undercity|
 B Buy at least four Rune of Teleportation from her |N|Hannah - (82.8, 15.8)| |C|Mage| |Z|Undercity|
 B Hannah |L|17031 4| |N|Hannah - (82.8, 15.8)| |C|Mage| |Z|Undercity|
@@ -31,7 +31,7 @@ A Gammerita, Mon! |QID|7816| |N|Katoom - (80.4, 81.5)| |Z|The Hinterlands|
 R Markhor |N|(79.1, 79.5)| |O| |C|Hunter| |Z|The Hinterlands|
 t Attack mobs with it to learn [Bite (Rank 7)] |N|Cast [Tame Beast] on a Saltwater Snapjaw to tame it - (78.0, 64.2)| |C|Hunter| |Z|The Hinterlands|
 N Click here for more info about pet training |N|(78.0, 64.2)| |C|Hunter| |Z|The Hinterlands|
-t Training (17267) |N|Markhor - (79.1, 79.5)| |C|Hunter| |Z|The Hinterlands|
+t Train your class spells |N|Markhor - (79.1, 79.5)| |C|Hunter| |Z|The Hinterlands|
 C Whiskey Slim's Lost Grog |QID|580| |OIDX|1| |N|Loot the Pupellyverbos Port Bottles along the shore| |O| |Z|The Hinterlands|
 C Snapjaws, Mon! |QID|7815| |OIDX|1| |N|Kill Saltwater Snapjaws| |O| |Z|The Hinterlands|
 N She patrols the length of the coast. Kite her to the guards. If you can't re-leash her consistently, wait until she is close to the village |N|(78.8, 76.3)| |Z|The Hinterlands|

@@ -238,7 +238,7 @@ B Collect Cutlass (1) |L|851 1| |N|Louis Warren in the Trade Quarter - (61.1, 40
 T Mennet Carkad |QID|1885| |N|Mennet - (83.5, 69.1)| |C|Rogue| |R|Undead| |Z|Undercity|
 A The Deathstalkers |QID|1886| |N|Mennet - (83.5, 69.1)| |C|Rogue| |R|Undead| |Z|Undercity|
 t Train 1h Swords |N|Archibald in the War Quarter - (57.3, 32.7)| |C|Rogue| |Z|Undercity|
-t Training (201) |O| |C|Rogue| |Z|Undercity|
+t Train your class spells |O| |C|Rogue| |Z|Undercity|
 R Travel to Tirisfal Glades |N|(61.8, 65.1)| |O| |C|Warrior| |R|Undead| |Z|Tirisfal Glades|
 R Travel to Undercity |N|(64.2, 39.8)| |O| |C|Warrior| |R|Undead| |Z|Undercity|
 R Take the lift down to the Undercity |N|(65.5, 43.6)| |O| |C|Warrior| |R|Undead| |Z|Undercity|

@@ -5,7 +5,7 @@ return [[
 N 52-53 Azshara |N|Converted from RestedXP guide|
 
 h Orgrimmar |N|Set hearth in Orgrimmar (54.1, 68.4)| |Z|Orgrimmar|
-t Training (3567) |N|Innkeeper Gryshka - (54.1, 68.4)| |C|Mage| |Z|Orgrimmar|
+t Train Teleport: Orgrimmar |N|Innkeeper Gryshka - (54.1, 68.4)| |C|Mage| |Z|Orgrimmar|
 R Karus |N|(49.6, 69.1) (!MARA Dungeon Quest)| |D|!MARA| |Z|Orgrimmar|
 N [Box of Empty Vials] (or the [Empty Vials] if you openend the box) |N|(49.6, 69.1) (!MARA Dungeon Quest)| |D|!MARA| |Z|Orgrimmar|
 R Karus |N|(49.6, 69.1) (MARA Dungeon Quest)| |D|MARA| |Z|Orgrimmar|

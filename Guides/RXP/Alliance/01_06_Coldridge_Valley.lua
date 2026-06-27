@@ -9,8 +9,8 @@ R Travel to Ironforge |N|(28.2, 71.7)| |O| |C|Warrior/Warlock| |Z|Ironforge|
 C Dwarven Outfitters |QID|179| |OIDX|1| |N|Unequip your [Recruit's Shirt], [Recruit's Pants], and [Recruit's Boots] so you can vendor them for 3 copper Tough Wolf Meat (8)| |O| |C|Warrior/Warlock| |Z|Ironforge|
 R Enter Anvilmar |N|(28.9, 68.4)| |O| |C|Warrior/Warlock| |Z|Ironforge|
 B Vendor Trash |N|Grundel Harkin inside - (28.8, 67.8)| |C|Warrior/Warlock| |Z|Ironforge|
-t Training (6673) |N|Grundel Harkin inside - (28.8, 67.8)| |C|Warrior| |Z|Ironforge|
-t Training (348) |N|Grundel Harkin inside - (28.8, 67.8)| |C|Warlock| |Z|Ironforge|
+t Train Battle Shout (Rank 1) |N|Grundel Harkin inside - (28.8, 67.8)| |C|Warrior| |Z|Ironforge|
+t Train Immolate (Rank 1) |N|Grundel Harkin inside - (28.8, 67.8)| |C|Warlock| |Z|Ironforge|
 t Train [Battle Shout] |N|Thran Khorman inside - (28.8, 67.2)| |C|Warrior| |Z|Ironforge|
 t Train [Immolate] |N|Alamar Grimm inside - (28.6, 66.1)| |C|Warlock| |Z|Dun Morogh|
 A Beginnings |QID|1599| |N|Alamar Grimm inside - (28.6, 66.1)| |C|Warlock| |Z|Dun Morogh|

@@ -11,10 +11,10 @@ F Fly to Southshore |N|Gryth - (55.5, 47.7)| |C|Warrior| |Z|Ironforge|
 T The Windwatcher |QID|1791| |N|Bath'rah the Windwatcher - (80.5, 66.9)| |C|Warrior| |Z|Alterac Mountains|
 A Cyclonian |QID|1712| |N|Bath'rah the Windwatcher - (80.5, 66.9)| |C|Warrior| |Z|Alterac Mountains|
 N Die on purpose and respawn at Southshore |O| |C|Warrior| |Z|Alterac Mountains|
-t Training (3565) |C|Mage| |Z|Alterac Mountains|
-t Training (3565) |N|(29.5, 41.4)| |O| |C|Mage| |Z|Alterac Mountains|
+t Train Teleport: Darnassus |C|Mage| |Z|Alterac Mountains|
+t Train Teleport: Darnassus |N|(29.5, 41.4)| |O| |C|Mage| |Z|Alterac Mountains|
 R Travel to Darnassus |N|(29.5, 41.4)| |O| |C|Mage| |Z|Darnassus|
-t Training (3565) |N|(58.4, 94.0)| |C|Mage| |Z|Darnassus|
+t Train Teleport: Darnassus |N|(58.4, 94.0)| |C|Mage| |Z|Darnassus|
 F Fly to Desolace |N|Vesprystus - (58.4, 94.0)| |C|Mage| |Z|Teldrassil|
 F Fly to Wetlands |N|Gryth - (55.5, 47.7)| |Z|Ironforge|
 R Travel to Wetlands |N|(7.1, 58.0)| |Z|Wetlands|

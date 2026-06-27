@@ -123,7 +123,7 @@ N If you have a [Dagger] in your bags or equipped, you can cast [Ambush] on the 
 N Be careful as the Malformed Defias Drone and Defias Drones can be at the entrance of the tower if you have to run out of it |N|(70.4, 74.0)| |C|Rogue| |Z|Westfall|
 C Klaven's Tower |QID|2359| |OIDX|1| |N|Manually [Unstealth], then press your "Interact with Target" keybind to open the Duskwood Chest. Loot it for Klaven Mortwake's Journal (70.4, 74.0)| |C|Rogue| |Z|Westfall|
 C Craft an [Anti-Venom] |L|6452 1| |C|Rogue| |R|!Dwarf| |Z|Westfall|
-t Training (7934) |C|Rogue| |R|!Dwarf| |Z|Westfall|
+t Train your class spells |C|Rogue| |R|!Dwarf| |Z|Westfall|
 N Dust Devils can spawn throughout all of Westfall. Their spawn locations are marked on the map |N|(34.8, 67.4)| |Z|Westfall|
 C Devils in Westfall |QID|1076| |OIDX|1| |N|Dust Devils. Loot them for their Debris (34.8, 67.4)| |Z|Westfall|
 T The Legend of Stalvan |QID|67| |N|the Old Footlocker on the ground - (41.5, 66.7)| |Z|Westfall|
@@ -157,7 +157,7 @@ R Shaina Fuller |N|(43.1, 26.2)| |C|Rogue| |R|!Dwarf| |Z|Stormwind City|
 N If you have a Paladin or Druid friend, ask them to remove the [Touch of Zanzil] for you instead |N|(43.1, 26.2)| |C|Rogue| |R|!Dwarf| |Z|Stormwind City|
 t Train [Anti-Venom] |N|Shaina Fuller - (43.1, 26.2)| |C|Rogue| |R|!Dwarf| |Z|Stormwind City|
 C Craft an [Anti-Venom] |L|6452 1| |C|Rogue| |R|!Dwarf| |Z|Stormwind City|
-t Training (7934) |C|Rogue| |R|!Dwarf| |Z|Stormwind City|
+t Train your class spells |C|Rogue| |R|!Dwarf| |Z|Stormwind City|
 R Enter the SI:7 Headquarters. Travel up stairs toward Master Mathias Shaw |N|(78.7, 60.1)| |O| |C|Rogue| |Z|Stormwind City|
 N Remember to re-equip your main weapon if you switched to a [Dagger] earlier |N|(75.8, 59.8)| |C|Rogue| |Z|Stormwind City|
 T Klaven's Tower |QID|2359| |N|Master Mathias Shaw - (75.8, 59.8)| |C|Rogue| |Z|Stormwind City|

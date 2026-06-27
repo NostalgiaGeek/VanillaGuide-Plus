@@ -104,7 +104,7 @@ B Buy [Superior Healing Potions] from him if they're up |N|Bronk - (76.1, 43.3)|
 t Train your class spells |N|Jannos - (76.0, 42.3)| |C|Druid| |Z|Feralas|
 F Fly to Crossroads |N|Shyn - (75.5, 44.4)| |O| |Z|Feralas|
 h Crossroads |N|Set hearth in Crossroads (52.0, 29.9)| |Z|The Barrens|
-t Training (3567) |N|Innkeeper Boorand - (52.0, 29.9)| |C|Mage| |Z|The Barrens|
+t Train Teleport: Orgrimmar |N|Innkeeper Boorand - (52.0, 29.9)| |C|Mage| |Z|The Barrens|
 F Fly to Ratchet |N|Devrak - (51.5, 30.3)| |O| |Z|The Barrens|
 A Volcanic Activity |QID|4502| |N|Liv - (62.5, 38.7)| |Z|The Barrens|
 C The Stone Circle |QID|3444| |OIDX|1| |N|Marvon's Chest outside of the building for the Stone Circle (62.5, 38.6)| |Z|The Barrens|

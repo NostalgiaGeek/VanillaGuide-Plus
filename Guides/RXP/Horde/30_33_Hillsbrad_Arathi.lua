@@ -162,7 +162,7 @@ R Tharlidun |N|(73.9, 33.1)| |O| |C|Hunter| |Z|Arathi Highlands|
 N Cast [Tame Beast] on a Plains Creeper to tame it |N|(68.5, 51.6)| |C|Hunter| |Z|Arathi Highlands|
 t Attack mobs with it to learn [Bite (Rank 5)] |N|Cast [Eagle Eye] to try and find a Plains Creeper. Some of their locations are marked on your map - (68.5, 51.6)| |C|Hunter| |Z|Arathi Highlands|
 N Click here for more info about pet training |N|(68.5, 51.6)| |C|Hunter| |Z|Arathi Highlands|
-t Training (17265) |N|Tharlidun - (73.9, 33.1)| |C|Hunter| |Z|Arathi Highlands|
+t Train your class spells |N|Tharlidun - (73.9, 33.1)| |C|Hunter| |Z|Arathi Highlands|
 N Be careful of the Highland Trashers, as they actually [Thrash] |O| |Z|Arathi Highlands|
 C Raising Spirits |QID|672| |OIDX|1| |N|Kill any Highland Raptor that you encounter. Loot them for their Eyes| |O| |Z|Arathi Highlands|
 N Be careful of Syndicate Highwaymen; they stealth around the farm's perimeter, and will backstab you if you kite/run away |N|(33.4, 30.7)| |Z|Arathi Highlands|
@@ -204,10 +204,10 @@ N Buy three [Elixir of Water Breathing] |N|(64.2, 49.6)| |C|!Shaman| |Z|Undercit
 N Buy three [Shiny Fish Scales] |N|(64.2, 49.6)| |C|Shaman| |Z|Undercity|
 B Auctioneer Rhyker |L|5996 3| |N|Auctioneer Rhyker - (64.2, 49.6)| |C|!Shaman| |Z|Undercity|
 B Auctioneer Rhyker |L|17057 3| |N|Auctioneer Rhyker - (64.2, 49.6)| |C|Shaman| |Z|Undercity|
-t Training (131) |N|Auctioneer Rhyker - (64.2, 49.6)| |C|Shaman| |Z|Undercity|
+t Train Water Breathing |N|Auctioneer Rhyker - (64.2, 49.6)| |C|Shaman| |Z|Undercity|
 N Buy three [Elixir of Water Breathing] |N|(64.2, 49.6)| |O| |C|Shaman| |Z|Undercity|
 B Auctioneer Rhyker |L|5996 3| |N|Auctioneer Rhyker - (64.2, 49.6)| |O| |C|Shaman| |Z|Undercity|
-t Training (131) |N|Auctioneer Rhyker - (64.2, 49.6)| |O| |C|Shaman| |Z|Undercity|
+t Train Water Breathing |N|Auctioneer Rhyker - (64.2, 49.6)| |O| |C|Shaman| |Z|Undercity|
 t Train your class spells |N|Angela - (48.3, 16.0)| |C|Warrior| |Z|Undercity|
 t Train your class spells |N|Carolyn - (83.9, 72.1)| |C|Rogue| |Z|Undercity|
 t Train your class spells |N|Richard - (88.9, 15.9)| |C|Warlock| |Z|Undercity|
