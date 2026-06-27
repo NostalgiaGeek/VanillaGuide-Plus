@@ -163,11 +163,8 @@ function TurtleGuide:ParseQuestShellPlus(guideTable)
                 local quest = step.title or step.note or "Step"
                 quest = TurtleGuide.trim(quest)
 
-                -- Add unique suffix for non-quest steps (same as string parser)
-                if not (stepType == "ACCEPT" or stepType == "COMPLETE" or stepType == "TURNIN") then
-                    quest = quest .. "@" .. uniqueid .. "@"
-                    uniqueid = uniqueid + 1
-                end
+                quest = quest .. "@" .. uniqueid .. "@"
+                uniqueid = uniqueid + 1
 
                 actions[i] = action
                 quests[i] = quest

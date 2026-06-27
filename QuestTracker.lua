@@ -258,7 +258,7 @@ function TurtleGuide:ScanQuestLog()
 	local quests = {}
 
 	for i = 1, GetNumQuestLogEntries() do
-		local title, level, questTag, suggestedGroup, isHeader, isCollapsed, isComplete = GetQuestLogTitle(i)
+		local title, level, questTag, isHeader, isCollapsed, isComplete = GetQuestLogTitle(i)
 		if not isHeader and title then
 			title = string.gsub(title, "%[[0-9%+%-]+]%s", "")
 			quests[title] = {
@@ -288,7 +288,7 @@ end
 function TurtleGuide:IsQuestInLog(questName)
 	questName = string.gsub(questName, L.PART_GSUB, "")
 	for i = 1, GetNumQuestLogEntries() do
-		local title, _, _, _, isHeader = GetQuestLogTitle(i)
+		local title, _, _, isHeader = GetQuestLogTitle(i)
 		if not isHeader and title then
 			title = string.gsub(title, "%[[0-9%+%-]+]%s", "")
 			if title == questName then
@@ -303,7 +303,7 @@ end
 function TurtleGuide:IsQuestComplete(questName)
 	questName = string.gsub(questName, L.PART_GSUB, "")
 	for i = 1, GetNumQuestLogEntries() do
-		local title, _, _, _, isHeader, _, isComplete = GetQuestLogTitle(i)
+		local title, _, _, isHeader, _, isComplete = GetQuestLogTitle(i)
 		if not isHeader and title then
 			title = string.gsub(title, "%[[0-9%+%-]+]%s", "")
 			if title == questName then

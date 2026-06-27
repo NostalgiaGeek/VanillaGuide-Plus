@@ -38,7 +38,7 @@ TurtleGuide.turtleRaces = {
     ["High Elf"] = { route = "HighElf", faction = "Alliance" },
     ["HighElf"] = { route = "HighElf", faction = "Alliance" },
     ["BloodElf"] = { route = "HighElf", faction = "Alliance" }, -- Turtle WoW uses BloodElf internally for High Elf
-    ["Goblin"] = { route = "Goblin", faction = "Horde" },  -- Horde race in Turtle WoW
+    ["Goblin"] = { route = "Goblin", faction = "Horde" },       -- Horde race in Turtle WoW
 }
 
 -- Get the normalized route name for a race
@@ -116,18 +116,18 @@ local defaults = {
     petskills = {},
     completedquests = {},
     completedquestsbyid = {}, -- {[questId] = true} from server
-    lastserverquery = 0,   -- timestamp for throttling
+    lastserverquery = 0,      -- timestamp for throttling
     -- Branching state
     isbranching = false,
     branchsavedguide = nil,
     branchsavedstep = nil,
-    autobranch = false,        -- auto-branch to Turtle WoW zones
-    routepack = nil,           -- Active route pack name (e.g., "VanillaGuide", "RestedXP")
+    autobranch = false,           -- auto-branch to Turtle WoW zones
+    routepack = nil,              -- Active route pack name (e.g., "VanillaGuide", "RestedXP")
     -- Starting zone selection (branch-and-rejoin)
     startingzoneselected = false, -- has player picked a starting zone?
-    selectedstartingzone = nil, -- which starting zone was selected (e.g., "Human", "Dwarf")
+    selectedstartingzone = nil,   -- which starting zone was selected (e.g., "Human", "Dwarf")
     startingzonecomplete = false, -- has player finished their starting zone?
-    rejoinlevel = 12,          -- level at which all paths rejoin (default 12)
+    rejoinlevel = 12,             -- level at which all paths rejoin (default 12)
     filterTurtle = true,
     filterOptimized = true,
     filterRXP = true,
@@ -320,7 +320,7 @@ local options = {
                 -- Check if specific guides exist
                 TurtleGuide:Print("--- Guide Existence ---")
                 TurtleGuide:Print("'Thalassian Highlands (1-10)': " ..
-                tostring(TurtleGuide.guides["Thalassian Highlands (1-10)"] ~= nil))
+                    tostring(TurtleGuide.guides["Thalassian Highlands (1-10)"] ~= nil))
                 TurtleGuide:Print("'Teldrassil (1-12)': " .. tostring(TurtleGuide.guides["Teldrassil (1-12)"] ~= nil))
 
                 -- Show first few guides in guidelist
@@ -347,9 +347,10 @@ local options = {
                 TurtleGuide:Print("GetNumSkillLines: " .. tostring(numSkills))
                 for i = 1, numSkills do
                     local name, isHeader, isExpanded, rank, maxRank = GetSkillLineInfo(i)
-                    TurtleGuide:Print(string.format("%d: %s (Header=%s, Rank=%s)", i, tostring(name), tostring(isHeader), tostring(rank)))
+                    TurtleGuide:Print(string.format("%d: %s (Header=%s, Rank=%s)", i, tostring(name), tostring(isHeader),
+                        tostring(rank)))
                 end
-                
+
                 TurtleGuide:Print("--- Spellbook ---")
                 local i = 1
                 while true do
@@ -360,11 +361,14 @@ local options = {
                     end
                     i = i + 1
                 end
-                
+
                 TurtleGuide:Print("--- Training Check ---")
-                TurtleGuide:Print("IsProfessionLearned('Blacksmithing'): " .. tostring(TurtleGuide:IsProfessionLearned("Blacksmithing")))
-                TurtleGuide:Print("IsSpellLearned('Blacksmithing'): " .. tostring(TurtleGuide:IsSpellLearned("Blacksmithing")))
-                TurtleGuide:Print("IsTrainingCompleted('Train [Blacksmithing]'): " .. tostring(TurtleGuide:IsTrainingCompleted("Train [Blacksmithing]")))
+                TurtleGuide:Print("IsProfessionLearned('Blacksmithing'): " ..
+                tostring(TurtleGuide:IsProfessionLearned("Blacksmithing")))
+                TurtleGuide:Print("IsSpellLearned('Blacksmithing'): " ..
+                tostring(TurtleGuide:IsSpellLearned("Blacksmithing")))
+                TurtleGuide:Print("IsTrainingCompleted('Train [Blacksmithing]'): " ..
+                tostring(TurtleGuide:IsTrainingCompleted("Train [Blacksmithing]")))
             end,
             order = 17,
         },
@@ -445,7 +449,7 @@ TurtleGuide.independentProfile = true
 function TurtleGuide:OnInitialize()
     self:RegisterDB("TurtleGuideDB")
     self:RegisterDefaults("char", defaults)
-    
+
     self.db.char.Dungeons = self.db.char.Dungeons or {}
     for k, v in pairs(defaults.Dungeons) do
         if self.db.char.Dungeons[k] == nil then
@@ -529,7 +533,7 @@ function TurtleGuide:InitializeRoute()
                     NightElf = "Teldrassil (1-12)",
                     -- Turtle WoW custom races
                     HighElf = "Thalassian Highlands (1-10)", -- High Elf starting zone
-                    Goblin = "Blackstone Island (1-10)", -- Goblin starting zone
+                    Goblin = "Blackstone Island (1-10)",     -- Goblin starting zone
                 }
                 -- Use normalized route name for lookup
                 self.db.char.currentguide = startguides[routeName] or startguides[race] or self.guidelist[1]
@@ -758,7 +762,7 @@ function TurtleGuide:IsSpellLearned(spellName)
         end
         i = i + 1
     end
-    
+
     local i = 1
     while true do
         local name, rank = GetSpellName(i, "pet")
@@ -768,18 +772,18 @@ function TurtleGuide:IsSpellLearned(spellName)
         end
         i = i + 1
     end
-    
+
     return false
 end
 
 function TurtleGuide:IsTrainingCompleted(stepName)
     if not stepName then return false end
-    
+
     local _, _, name = string.find(stepName, "%[([^%]]+)%]")
     if not name then
         name = stepName
     end
-    
+
     if name then
         name = string.gsub(name, "^Train%s+", "")
         name = string.gsub(name, "^Training%s+", "")
@@ -787,18 +791,18 @@ function TurtleGuide:IsTrainingCompleted(stepName)
         name = string.gsub(name, "%s*%(.*%)", "")
         name = string.gsub(name, "%s*Part%s*%d+", "")
         name = TurtleGuide.trim(name)
-        
+
         if string.len(name) > 0 then
             if self:IsProfessionLearned(name) then
                 return true
             end
-            
+
             if self:IsSpellLearned(name) then
                 return true
             end
         end
     end
-    
+
     return false
 end
 
@@ -819,7 +823,7 @@ function TurtleGuide:GetQuestDetails(name, oidx)
     if not name then return end
     local i = self:GetQuestLogIndexByName(name)
     if not i or i < 1 then return end
-    local _, _, _, _, _, _, isComplete = GetQuestLogTitle(i)
+    local _, _, _, _, _, isComplete = GetQuestLogTitle(i)
     local complete = i and isComplete and isComplete == 1
 
     if oidx and not complete then
@@ -893,6 +897,15 @@ function TurtleGuide:SetTurnedIn(i, value, noupdate)
         value = true
     end
 
+    local qid = self:GetObjectiveTag("QID", i)
+    if qid and not value then
+        local qidNum = tonumber(qid)
+        if pfQuest_history and (pfQuest_history[qidNum] or pfQuest_history[tostring(qidNum)]) then
+            self:UpdateStatusFrame()
+            return
+        end
+    end
+
     if value then value = true else value = nil end -- Cleanup to minimize savedvar data
 
     local quest = self.quests[i]
@@ -950,7 +963,7 @@ end
 ---------------------------------
 
 function TurtleGuide:QueryServerCompletedQuests(force)
-    self:SyncWithPfQuestHistory()
+    self:SyncWithPfQuestHistory(force)
     -- Count locally tracked completed quests
     local localCountByName = 0
     local localCountByQid = 0
@@ -1509,7 +1522,7 @@ function TurtleGuide:GetNextRouteGuideForLevel(route, playerLevel)
     local bestMinLevel = -1
     local fallbackGuide -- For extended range matches
     local fallbackMinLevel = -1
-    local futureGuide -- First guide ahead of player's level
+    local futureGuide   -- First guide ahead of player's level
     local skippedGuides = {}
 
     for i, zone in ipairs(route) do
@@ -1862,7 +1875,7 @@ function TurtleGuide:UpdateStartingZoneSelectorPanel()
     if nativeZone then
         local _, race = UnitRace("player")
         f.nativeText:SetText("|cff00ff00" .. L["Recommended for your race"] .. ":|r " .. race .. " - " .. nativeZone
-        .zone)
+            .zone)
     else
         f.nativeText:SetText("")
     end
@@ -2182,9 +2195,27 @@ function TurtleGuide.GetUIParentAnchor(frame)
     return vhalf .. hhalf, dx, dy
 end
 
-function TurtleGuide:SyncWithPfQuestHistory()
+function TurtleGuide:SyncWithPfQuestHistory(force)
     if not pfQuest_history then return end
-    
+
+    if force then
+        self.db.char.completedquestsbyid = {}
+        self.db.char.completedquests = {}
+        if self.db.char.turnins then
+            for k in pairs(self.db.char.turnins) do
+                self.db.char.turnins[k] = nil
+            end
+        end
+        if self.turnedin then
+            for k in pairs(self.turnedin) do
+                self.turnedin[k] = nil
+            end
+        end
+        if self.db.char.currentguide then
+            self.db.char.turnins[self.db.char.currentguide] = self.turnedin or {}
+        end
+    end
+
     local imported = 0
 
     -- pfQuest_history is a SavedVariablesPerCharacter flat table:
@@ -2195,6 +2226,16 @@ function TurtleGuide:SyncWithPfQuestHistory()
             if not self.db.char.completedquestsbyid[qidNum] then
                 self.db.char.completedquestsbyid[qidNum] = true
                 imported = imported + 1
+            end
+
+            -- Also populate the name-based completion table if we can find the name in pfQuest
+            if pfDB and pfDB.quests and pfDB.quests.loc and pfDB.quests.loc[qidNum] then
+                local questName = pfDB.quests.loc[qidNum]["T"]
+                if questName then
+                    local cleanQuest = string.gsub(questName, "%[[0-9%+%-]+]%s", "")
+                    cleanQuest = string.gsub(cleanQuest, TurtleGuide.Locale.PART_GSUB, "")
+                    self.db.char.completedquests[cleanQuest] = true
+                end
             end
         end
     end

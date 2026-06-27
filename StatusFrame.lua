@@ -1,6 +1,6 @@
 local ICONSIZE, CHECKSIZE, GAP = 16, 16, 8
 local NAVBTNSIZE = 14
-local FIXEDWIDTH = ICONSIZE + CHECKSIZE + GAP * 4 - 4 + NAVBTNSIZE * 2 + 6  -- +prev/next buttons
+local FIXEDWIDTH = ICONSIZE + CHECKSIZE + GAP * 4 - 4 + NAVBTNSIZE * 2 + 6 -- +prev/next buttons
 
 local TurtleGuide = TurtleGuide
 local ww = WidgetWarlock
@@ -20,7 +20,8 @@ local check = ww.SummonCheckBox(CHECKSIZE, f, "LEFT", GAP, 0)
 
 -- Previous objective button
 local prevBtn = CreateFrame("Button", nil, f)
-prevBtn:SetWidth(14) prevBtn:SetHeight(14)
+prevBtn:SetWidth(14)
+prevBtn:SetHeight(14)
 prevBtn:SetPoint("LEFT", check, "RIGHT", 2, 0)
 prevBtn:SetNormalTexture("Interface\\Buttons\\UI-SpellbookIcon-PrevPage-Up")
 prevBtn:SetPushedTexture("Interface\\Buttons\\UI-SpellbookIcon-PrevPage-Down")
@@ -38,7 +39,8 @@ text:SetPoint("LEFT", icon, "RIGHT", GAP - 4, 0)
 
 -- Next objective button
 local nextBtn = CreateFrame("Button", nil, f)
-nextBtn:SetWidth(14) nextBtn:SetHeight(14)
+nextBtn:SetWidth(14)
+nextBtn:SetHeight(14)
 nextBtn:SetPoint("RIGHT", f, "RIGHT", -GAP, 0)
 nextBtn:SetNormalTexture("Interface\\Buttons\\UI-SpellbookIcon-NextPage-Up")
 nextBtn:SetPushedTexture("Interface\\Buttons\\UI-SpellbookIcon-NextPage-Down")
@@ -52,13 +54,16 @@ nextBtn:SetScript("OnLeave", function() GameTooltip:Hide() end)
 
 -- Return from branch button (only visible when branching)
 local returnBtn = CreateFrame("Button", nil, f)
-returnBtn:SetWidth(50) returnBtn:SetHeight(14)
+returnBtn:SetWidth(50)
+returnBtn:SetHeight(14)
 returnBtn:SetPoint("LEFT", f, "RIGHT", 4, 0)
 returnBtn:SetBackdrop({
 	bgFile = "Interface\\Tooltips\\UI-Tooltip-Background",
 	edgeFile = "Interface\\Tooltips\\UI-Tooltip-Border",
-	tile = true, tileSize = 8, edgeSize = 8,
-	insets = {left = 2, right = 2, top = 2, bottom = 2}
+	tile = true,
+	tileSize = 8,
+	edgeSize = 8,
+	insets = { left = 2, right = 2, top = 2, bottom = 2 }
 })
 returnBtn:SetBackdropColor(0, 0.4, 0, 0.8)
 returnBtn:SetBackdropBorderColor(0, 0.8, 0, 0.8)
@@ -134,7 +139,6 @@ function TurtleGuide:PositionStatusFrame()
 	end
 end
 
-
 function TurtleGuide:SetStatusText(i)
 	self.current = i
 	local action, quest = self:GetObjectiveInfo(i)
@@ -151,7 +155,8 @@ function TurtleGuide:SetStatusText(i)
 		for _, prereq in ipairs(unmetPrereqs) do
 			-- Only warn if prerequisite is NOT in current guide (i.e., from another zone)
 			if not prereq.guideStep then
-				self:Print(string.format("|cffff6600Warning:|r Quest requires prerequisite from another zone: |cffffd700%s|r", prereq.name))
+				self:Print(string.format(
+				"|cffff6600Warning:|r Quest requires prerequisite from another zone: |cffffd700%s|r", prereq.name))
 				self.lastPrereqWarning = i
 			end
 		end
@@ -187,7 +192,8 @@ function TurtleGuide:SetStatusText(i)
 
 	icon:SetTexture(self.icons[action])
 	if action ~= "ACCEPT" and action ~= "TURNIN" then icon:SetTexCoord(4 / 48, 44 / 48, 4 / 48, 44 / 48) end
-	if self:GetObjectiveTag("T") then f:SetBackdropColor(0.09, 0.5, 0.19, 0.5) else f:SetBackdropColor(0.09, 0.09, 0.19, 0.5) end
+	if self:GetObjectiveTag("T") then f:SetBackdropColor(0.09, 0.5, 0.19, 0.5) else f:SetBackdropColor(0.09, 0.09, 0.19,
+			0.5) end
 	text:SetText(newtext)
 	check:SetChecked(false)
 	check:SetButtonState("NORMAL")
@@ -197,7 +203,6 @@ function TurtleGuide:SetStatusText(i)
 
 	if self.UpdateFubarPlugin then self.UpdateFubarPlugin(quest, self.icons[action], note) end
 end
-
 
 local lastmapped, lastmappedaction, lastmappedquest, tex, uitem
 function TurtleGuide:UpdateStatusFrame()
@@ -217,19 +222,35 @@ function TurtleGuide:UpdateStatusFrame()
 		if not self.turnedin[name] and not nextstep then
 			local action, name, quest = self:GetObjectiveInfo(i)
 			local turnedin, logi, complete = self:GetObjectiveStatus(i)
-			local note, useitem, optional, prereq, lootitem, lootqty = self:GetObjectiveTag("N", i), self:GetObjectiveTag("U", i), self:GetObjectiveTag("O", i), self:GetObjectiveTag("PRE", i), self:GetObjectiveTag("L", i)
-			self:Debug("UpdateStatusFrame", i, action, name, note, logi, complete, turnedin, quest, useitem, optional, lootitem, lootqty, lootitem and self.GetItemCount(lootitem) or 0)
+			local note, useitem, optional, prereq, lootitem, lootqty = self:GetObjectiveTag("N", i),
+				self:GetObjectiveTag("U", i), self:GetObjectiveTag("O", i), self:GetObjectiveTag("PRE", i),
+				self:GetObjectiveTag("L", i)
+			self:Debug("UpdateStatusFrame", i, action, name, note, logi, complete, turnedin, quest, useitem, optional,
+				lootitem, lootqty, lootitem and self.GetItemCount(lootitem) or 0)
 			local level = tonumber((self:GetObjectiveTag("LV", i)))
 			local needlevel = level and level > UnitLevel("player")
 			local hasuseitem = useitem and self:FindBagSlot(useitem)
 			local haslootitem = lootitem and self.GetItemCount(lootitem) >= lootqty
-			local prereqturnedin = prereq and self.turnedin[prereq]
+			local prereqturnedin = false
+			if prereq then
+				if self.turnedin[prereq] then
+					prereqturnedin = true
+				else
+					for k, v in pairs(self.turnedin) do
+						if v and string.sub(k, 1, string.len(prereq) + 1) == prereq .. "@" then
+							prereqturnedin = true
+							break
+						end
+					end
+				end
+			end
 
 			-- Test for completed objectives and mark them done
 			if action == "SETHEARTH" and self.db.char.hearth == name then return self:SetTurnedIn(i, true) end
 
 			local zonetext, subzonetext, subzonetag = GetZoneText(), GetSubZoneText(), self:GetObjectiveTag("SZ")
-			if (action == "RUN" or action == "FLY" or action == "HEARTH" or action == "BOAT") and (subzonetext == name or subzonetext == subzonetag or zonetext == name or zonetext == subzonetag) then return self:SetTurnedIn(i, true) end
+			if (action == "RUN" or action == "FLY" or action == "HEARTH" or action == "BOAT") and (subzonetext == name or subzonetext == subzonetag or zonetext == name or zonetext == subzonetag) then return
+				self:SetTurnedIn(i, true) end
 
 			if action == "KILL" or action == "NOTE" or action == "COMPLETE" or action == "BUY" then
 				if haslootitem then return self:SetTurnedIn(i, true) end
@@ -251,19 +272,27 @@ function TurtleGuide:UpdateStatusFrame()
 			if action == "ACCEPT" or action == "COMPLETE" or action == "TURNIN" or action == "RUN" then
 				local qid = self:GetObjectiveTag("QID", i)
 				local cleanQuest = string.gsub(name, TurtleGuide.Locale.PART_GSUB, "")
-				if (qid and self:IsQuestCompletedOnServer(qid)) or self.db.char.completedquests[cleanQuest] then
+				if (qid and self:IsQuestCompletedOnServer(qid)) or (not qid and self.db.char.completedquests[cleanQuest]) then
 					return self:SetTurnedIn(i, true)
 				end
 			end
 
 			local incomplete
-			if action == "ACCEPT" then incomplete = (not optional or hasuseitem or haslootitem or prereqturnedin) and not logi
-			elseif action == "TURNIN" then incomplete = not optional or logi
-			elseif action == "COMPLETE" then incomplete = not complete and (not optional or logi)
-			elseif action == "NOTE" or action == "KILL" then incomplete = not optional or haslootitem
-			elseif action == "GRIND" then incomplete = needlevel
-			elseif action == "TRAIN" then incomplete = not self:IsTrainingCompleted(name)
-			else incomplete = not logi end
+			if action == "ACCEPT" then
+				incomplete = (not optional or hasuseitem or haslootitem or prereqturnedin) and not logi
+			elseif action == "TURNIN" then
+				incomplete = not optional or logi
+			elseif action == "COMPLETE" then
+				incomplete = not complete and (not optional or logi)
+			elseif action == "NOTE" or action == "KILL" then
+				incomplete = not optional or haslootitem
+			elseif action == "GRIND" then
+				incomplete = needlevel
+			elseif action == "TRAIN" then
+				incomplete = not self:IsTrainingCompleted(name)
+			else
+				incomplete = not logi
+			end
 
 			if incomplete then nextstep = i end
 
@@ -300,7 +329,8 @@ function TurtleGuide:UpdateStatusFrame()
 	self.current = nextstep
 	local action, quest, fullquest = self:GetObjectiveInfo(nextstep)
 	local turnedin, logi, complete = self:GetObjectiveStatus(nextstep)
-	local note, useitem, optional, qid = self:GetObjectiveTag("N", nextstep), self:GetObjectiveTag("U", nextstep), self:GetObjectiveTag("O", nextstep), self:GetObjectiveTag("QID", nextstep)
+	local note, useitem, optional, qid = self:GetObjectiveTag("N", nextstep), self:GetObjectiveTag("U", nextstep),
+		self:GetObjectiveTag("O", nextstep), self:GetObjectiveTag("QID", nextstep)
 	local zonename = self:GetObjectiveTag("Z", nextstep) or self.zonename
 	self:Debug(string.format("Progressing to objective \"%s %s\"", action, quest))
 
@@ -340,24 +370,27 @@ function TurtleGuide:UpdateStatusFrame()
 	tex = useitem and self.select(9, GetItemInfo(tonumber(useitem)))
 	uitem = useitem
 	item.uitem = tex and uitem or nil
-	if UnitAffectingCombat("player") then self:RegisterEvent("PLAYER_REGEN_ENABLED")
-	else self:PLAYER_REGEN_ENABLED() end
+	if UnitAffectingCombat("player") then
+		self:RegisterEvent("PLAYER_REGEN_ENABLED")
+	else
+		self:PLAYER_REGEN_ENABLED()
+	end
 
 	self:UpdateOHPanel()
 end
-
 
 function TurtleGuide:PLAYER_REGEN_ENABLED()
 	if tex then
 		itemicon:SetTexture(tex)
 		item:Show()
 		tex = nil
-	else item:Hide() end
+	else
+		item:Hide()
+	end
 	if self:IsEventRegistered("PLAYER_REGEN_ENABLED") then
 		self:UnregisterEvent("PLAYER_REGEN_ENABLED")
 	end
 end
-
 
 f:SetScript("OnClick", function()
 	local self, btn = this, arg1
@@ -446,9 +479,11 @@ f:SetScript("OnDragStop", function()
 	local frame = this
 	frame:StopMovingOrSizing()
 	local _
-	TurtleGuide.db.profile.statusframepoint, _, _, TurtleGuide.db.profile.statusframex, TurtleGuide.db.profile.statusframey = frame:GetPoint()
+	TurtleGuide.db.profile.statusframepoint, _, _, TurtleGuide.db.profile.statusframex, TurtleGuide.db.profile.statusframey =
+	frame:GetPoint()
 	frame:ClearAllPoints()
-	frame:SetPoint(TurtleGuide.db.profile.statusframepoint, TurtleGuide.db.profile.statusframex, TurtleGuide.db.profile.statusframey)
+	frame:SetPoint(TurtleGuide.db.profile.statusframepoint, TurtleGuide.db.profile.statusframex,
+		TurtleGuide.db.profile.statusframey)
 	ShowTooltip(frame)
 end)
 
@@ -456,12 +491,16 @@ end)
 item:RegisterForDrag("LeftButton")
 item:SetMovable(true)
 item:SetClampedToScreen(true)
-item:SetScript("OnDragStart", function() local frame = this frame:StartMoving() end)
+item:SetScript("OnDragStart", function()
+	local frame = this
+	frame:StartMoving()
+end)
 item:SetScript("OnDragStop", function()
 	local frame = this
 	frame:StopMovingOrSizing()
 	local _
-	TurtleGuide.db.profile.itemframepoint, _, _, TurtleGuide.db.profile.itemframex, TurtleGuide.db.profile.itemframey = frame:GetPoint()
+	TurtleGuide.db.profile.itemframepoint, _, _, TurtleGuide.db.profile.itemframex, TurtleGuide.db.profile.itemframey =
+	frame:GetPoint()
 end)
 
 f:SetScript("OnHide", function()

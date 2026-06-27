@@ -1,4 +1,3 @@
-
 local actiontypes = {
 	A = "ACCEPT",
 	C = "COMPLETE",
@@ -25,10 +24,14 @@ function TurtleGuide:GetObjectiveTag(tag, i)
 	local tags = self.tags[i]
 	if not tags then return end
 
-	if tag == "O" then return string.find(tags, "|O|")
-	elseif tag == "T" then return string.find(tags, "|T|")
-	elseif tag == "S" then return string.find(tags, "|S|")
-	elseif tag == "QID" then return self.select(3, string.find(tags, "|QID|(%d+)|"))
+	if tag == "O" then
+		return string.find(tags, "|O|")
+	elseif tag == "T" then
+		return string.find(tags, "|T|")
+	elseif tag == "S" then
+		return string.find(tags, "|S|")
+	elseif tag == "QID" then
+		return self.select(3, string.find(tags, "|QID|(%d+)|"))
 	elseif tag == "L" then
 		local _, _, lootitem, lootqty = string.find(tags, "|L|(%d+)%s?(%d*)|")
 		lootqty = tonumber(lootqty) or 1
@@ -39,15 +42,17 @@ function TurtleGuide:GetObjectiveTag(tag, i)
 	return self.select(3, string.find(tags, "|" .. tag .. "|([^|]*)|?"))
 end
 
-
 local function DumpQuestDebug(accepts, turnins, completes)
-	for quest in pairs(accepts) do if not turnins[quest] then TurtleGuide:Debug(string.format("Quest has no 'turnin' objective: %s", quest)) end end
-	for quest in pairs(turnins) do if not accepts[quest] then TurtleGuide:Debug(string.format("Quest has no 'accept' objective: %s", quest)) end end
-	for quest in pairs(completes) do if not accepts[quest] and not turnins[quest] then TurtleGuide:Debug(string.format("Quest has no 'accept' and 'turnin' objectives: %s", quest)) end end
+	for quest in pairs(accepts) do if not turnins[quest] then TurtleGuide:Debug(string.format(
+			"Quest has no 'turnin' objective: %s", quest)) end end
+	for quest in pairs(turnins) do if not accepts[quest] then TurtleGuide:Debug(string.format(
+			"Quest has no 'accept' objective: %s", quest)) end end
+	for quest in pairs(completes) do if not accepts[quest] and not turnins[quest] then TurtleGuide:Debug(string.format(
+			"Quest has no 'accept' and 'turnin' objectives: %s", quest)) end end
 end
 
 
-local titlematches = {"For", "A", "The", "Or", "In", "Then", "From", "To"}
+local titlematches = { "For", "A", "The", "Or", "In", "Then", "From", "To" }
 local function DebugQuestObjective(text, action, quest, accepts, turnins, completes)
 	local haserrors
 
@@ -56,9 +61,13 @@ local function DebugQuestObjective(text, action, quest, accepts, turnins, comple
 		haserrors = true
 	end
 
-	if action == "A" then accepts[quest] = true
-	elseif action == "T" then turnins[quest] = true
-	elseif action == "C" then completes[quest] = true end
+	if action == "A" then
+		accepts[quest] = true
+	elseif action == "T" then
+		turnins[quest] = true
+	elseif action == "C" then
+		completes[quest] = true
+	end
 
 	if string.find(text, "|NODEBUG|") then return haserrors end
 
@@ -95,7 +104,7 @@ local function StepParse(guide)
 		local components = TurtleGuide.split("/", filter)
 		local hasMatches = false
 		local hasNegations = false
-		
+
 		for _, sp in ipairs(components) do
 			if string.sub(sp, 1, 1) == "!" then
 				hasNegations = true
@@ -104,7 +113,7 @@ local function StepParse(guide)
 				if sp == myValue then hasMatches = true end
 			end
 		end
-		
+
 		if hasNegations and not hasMatches then return true end
 		return hasMatches
 	end
@@ -114,14 +123,15 @@ local function StepParse(guide)
 		local components = TurtleGuide.split("/", dungeon)
 		local hasMatches = false
 		local hasNegations = false
-		
+
 		for _, sp in ipairs(components) do
 			local isNegation = string.sub(sp, 1, 1) == "!"
 			local code = isNegation and string.sub(sp, 2) or sp
 			code = string.upper(code)
-			
-			local isSelected = TurtleGuide.db and TurtleGuide.db.char and TurtleGuide.db.char.Dungeons and TurtleGuide.db.char.Dungeons[code]
-			
+
+			local isSelected = TurtleGuide.db and TurtleGuide.db.char and TurtleGuide.db.char.Dungeons and
+			TurtleGuide.db.char.Dungeons[code]
+
 			if isNegation then
 				hasNegations = true
 				if isSelected then return false end
@@ -129,7 +139,7 @@ local function StepParse(guide)
 				if isSelected then hasMatches = true end
 			end
 		end
-		
+
 		if hasNegations and not hasMatches then return true end
 		return hasMatches
 	end
@@ -142,10 +152,8 @@ local function StepParse(guide)
 			local _, _, action, quest, tag = string.find(text, "^(%a) ([^|]*)(.*)")
 			if action and actiontypes[action] then
 				quest = TurtleGuide.trim(quest)
-				if action ~= "T" then
-					quest = quest .. "@" .. uniqueid .. "@"
-					uniqueid = uniqueid + 1
-				end
+				quest = quest .. "@" .. uniqueid .. "@"
+				uniqueid = uniqueid + 1
 				actions[i], quests[i], tags[i] = actiontypes[action], quest, tag
 				i = i + 1
 				haserrors = DebugQuestObjective(text, action, quest, accepts, turnins, completes) or haserrors
@@ -161,8 +169,11 @@ end
 
 function TurtleGuide:LoadGuide(name, complete)
 	if not name then return end
-	if complete then self.db.char.completion[self.db.char.currentguide] = 1
-	elseif self.actions then self.db.char.completion[self.db.char.currentguide] = (self.current - 1) / table.getn(self.actions) end
+	if complete then
+		self.db.char.completion[self.db.char.currentguide] = 1
+	elseif self.actions then
+		self.db.char.completion[self.db.char.currentguide] = (self.current - 1) / table.getn(self.actions)
+	end
 
 	self.db.char.currentguide = self.guides[name] and name or self.guidelist[1]
 
@@ -339,7 +350,7 @@ function TurtleGuide:SmartSkipToStep()
 
 	-- Scan quest log
 	for i = 1, GetNumQuestLogEntries() do
-		local title, _, _, _, isHeader, _, isComplete = GetQuestLogTitle(i)
+		local title, _, _, isHeader, _, isComplete = GetQuestLogTitle(i)
 		if not isHeader and title then
 			title = string.gsub(title, "%[[0-9%+%-]+]%s", "")
 			if isComplete == 1 then
@@ -359,7 +370,11 @@ function TurtleGuide:SmartSkipToStep()
 		if completedQuests[cleanQuest] or inProgressQuests[cleanQuest] then
 			local qid = self:GetObjectiveTag("QID", i)
 			if qid then
-				self.db.char.completedquestsbyid[tonumber(qid)] = nil
+				local qidNum = tonumber(qid)
+				-- Do not clear QID if it is confirmed completed in pfQuest history
+				if not (pfQuest_history and (pfQuest_history[qidNum] or pfQuest_history[tostring(qidNum)])) then
+					self.db.char.completedquestsbyid[qidNum] = nil
+				end
 			end
 			self.db.char.completedquests[cleanQuest] = nil
 		end
@@ -386,7 +401,8 @@ function TurtleGuide:SmartSkipToStep()
 								-- Check if the prerequisite has the same name
 								local preQuestData = pfDB["quests"]["data"][preQid]
 								if preQuestData then
-									local preQuestName = pfDB.quests.loc and pfDB.quests.loc[preQid] and pfDB.quests.loc[preQid]["T"] or nil
+									local preQuestName = pfDB.quests.loc and pfDB.quests.loc[preQid] and
+									pfDB.quests.loc[preQid]["T"] or nil
 									if preQuestName then
 										local cleanPreQuest = string.gsub(preQuestName, "%[[0-9%+%-]+]%s", "")
 										cleanPreQuest = string.gsub(cleanPreQuest, TurtleGuide.Locale.PART_GSUB, "")
@@ -422,11 +438,14 @@ function TurtleGuide:SmartSkipToStep()
 	-- Pre-mark locally-tracked completed quests (by name)
 	for i, quest in ipairs(self.quests) do
 		local action = self.actions[i]
-		local cleanQuest = string.gsub(quest, "@.*@", "")
-		cleanQuest = string.gsub(cleanQuest, TurtleGuide.Locale.PART_GSUB, "")
-		if self.db.char.completedquests[cleanQuest] then
-			if action == "TURNIN" or action == "ACCEPT" or action == "COMPLETE" or action == "RUN" then
-				self.turnedin[quest] = true
+		local qid = self:GetObjectiveTag("QID", i)
+		if not qid then
+			local cleanQuest = string.gsub(quest, "@.*@", "")
+			cleanQuest = string.gsub(cleanQuest, TurtleGuide.Locale.PART_GSUB, "")
+			if self.db.char.completedquests[cleanQuest] then
+				if action == "TURNIN" or action == "ACCEPT" or action == "COMPLETE" or action == "RUN" then
+					self.turnedin[quest] = true
+				end
 			end
 		end
 	end
@@ -438,7 +457,8 @@ function TurtleGuide:SmartSkipToStep()
 		local cleanQuest = string.gsub(quest, "@.*@", "")
 		cleanQuest = string.gsub(cleanQuest, TurtleGuide.Locale.PART_GSUB, "")
 		local qid = self:GetObjectiveTag("QID", i)
-		local isCompleted = (qid and self.db.char.completedquestsbyid[tonumber(qid)]) or self.db.char.completedquests[cleanQuest]
+		local isCompleted = (qid and self.db.char.completedquestsbyid[tonumber(qid)]) or
+		(not qid and self.db.char.completedquests[cleanQuest])
 
 		if action == "ACCEPT" then
 			-- If quest is in log or completed, mark as done
@@ -486,7 +506,6 @@ function TurtleGuide:SmartSkipToStep()
 	self.current = furthestStep
 end
 
-
 function TurtleGuide:DebugGuideSequence(dumpquests)
 	local accepts, turnins, completes = {}, {}, {}
 	local function DebugParse(guide)
@@ -498,10 +517,8 @@ function TurtleGuide:DebugGuideSequence(dumpquests)
 				if action and not actiontypes[action] then TurtleGuide:Debug("Unknown action: " .. text) end
 				if quest then
 					quest = TurtleGuide.trim(quest)
-					if not (action == "A" or action == "C" or action == "T") then
-						quest = quest .. "@" .. uniqueid .. "@"
-						uniqueid = uniqueid + 1
-					end
+					quest = quest .. "@" .. uniqueid .. "@"
+					uniqueid = uniqueid + 1
 					haserrors = DebugQuestObjective(text, action, quest, accepts, turnins, completes) or haserrors
 				end
 			end
