@@ -305,3 +305,61 @@ function TurtleGuide:UpdateWaypoint()
 
 	self:ParseAndMapCoords(qid, action, note, quest, zonename)
 end
+
+-- Patch Astrolabe/TomTom spelling mismatches and Lua errors at runtime
+function TurtleGuide:PatchAstrolabe()
+	if self.astrolabePatched then return end
+	self.astrolabePatched = true
+
+	-- 1. Fix Astrolabe spelling mismatches
+	if Astrolabe and Astrolabe.ContinentList and WorldMapSize then
+		local misspellings = {
+			["orgrimmar"] = "Ogrimmar",
+			["darnassus"] = "Darnassis",
+			["azshara"] = "Aszhara",
+			["hillsbrad"] = "Hilsbrad"
+		}
+		for continent, zones in pairs(Astrolabe.ContinentList) do
+			for index, zData in pairs(zones) do
+				if zData.mapFile then
+					local correctKey = misspellings[string.lower(zData.mapFile)]
+					if correctKey and WorldMapSize[continent] and WorldMapSize[continent].zoneData then
+						local coords = WorldMapSize[continent].zoneData[correctKey]
+						if coords then
+							-- Overwrite the zeroData at mapData[index] with the correct coordinates
+							WorldMapSize[continent][index] = coords
+							coords.mapName = zData.mapName
+						end
+					end
+				end
+			end
+		end
+		self:Debug("Astrolabe spelling mismatch patches applied successfully.")
+	end
+
+	-- 2. Fix TomTom texcoords indexing Lua error when NaN or invalid keys are passed
+	if TomTom and TomTom.texcoords then
+		local mt = getmetatable(TomTom.texcoords)
+		if mt and mt.__index then
+			local original_index = mt.__index
+			mt.__index = function(t, k)
+				-- Ensure k is a valid string containing a colon to avoid Lua errors
+				if type(k) == "string" and string.find(k, ":") then
+					local status, res = pcall(original_index, t, k)
+					if status then
+						return res
+					end
+				end
+				-- Safe fallback: call original_index with "1:1" to prevent crashes
+				local status, res = pcall(original_index, t, "1:1")
+				if status then
+					return res
+				end
+				-- Absolute fallback: return hardcoded table to avoid returning nil/crashing
+				return {0, 0, 0, 0}
+			end
+			self:Debug("TomTom texcoords error safety wrapper applied successfully.")
+		end
+	end
+end
+

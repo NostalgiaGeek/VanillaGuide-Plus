@@ -468,6 +468,7 @@ function TurtleGuide:OnInitialize()
 end
 
 function TurtleGuide:OnEnable()
+    self:PatchAstrolabe()
     local _, title = GetAddOnInfo("TurtleGuide")
     local author, version = GetAddOnMetadata("TurtleGuide", "Author"), GetAddOnMetadata("TurtleGuide", "Version")
 
@@ -588,6 +589,7 @@ function TurtleGuide:OnClick()
 end
 
 function TurtleGuide:PLAYER_ENTERING_WORLD()
+    self:PatchAstrolabe()
     self.myfaction = UnitFactionGroup("player")
     -- load static guides
     for i, t in ipairs(self.deferguides) do

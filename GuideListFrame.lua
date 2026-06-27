@@ -243,17 +243,17 @@ slider:SetPoint("TOPRIGHT", frame, "TOPRIGHT", -8, -45)
 slider:SetPoint("BOTTOMRIGHT", frame, "BOTTOMRIGHT", -8, 25)
 slider:SetMinMaxValues(0, 100)
 slider:SetValueStep(1)
-slider:SetValue(0)
 slider:SetWidth(16)
 frame.slider = slider
 
 slider:SetScript("OnValueChanged", function()
     local val = arg1
-    if not slider.updating then
+    if not slider.updating and TurtleGuide.UpdateGuideListPanel then
         offset = math.floor(val)
         TurtleGuide:UpdateGuideListPanel()
     end
 end)
+slider:SetValue(0)
 
 frame:SetScript("OnShow", function()
     offset = 0
@@ -414,8 +414,8 @@ function TurtleGuide:UpdateGuideListPanel()
 
     if maxOffset > 0 then
         slider:Show()
-        slider:SetMinMaxValues(0, maxOffset)
         slider.updating = true
+        slider:SetMinMaxValues(0, maxOffset)
         slider:SetValue(offset)
         slider.updating = false
     else

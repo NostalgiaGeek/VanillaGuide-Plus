@@ -34,21 +34,22 @@ function TurtleGuide:SPELLS_CHANGED()
 	self:UpdateStatusFrame()
 end
 
-
 function TurtleGuide:PLAYER_LEVEL_UP(event, newlevel)
 	local level = tonumber((self:GetObjectiveTag("LV")))
 	self:Debug("PLAYER_LEVEL_UP", newlevel, level)
 	if level and newlevel >= level then self:SetTurnedIn() end
 end
 
-
-function TurtleGuide:ZONE_CHANGED(a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17, a18, a19, a20)
-	local zonetext, subzonetext, subzonetag, action, quest = GetZoneText(), GetSubZoneText(), self:GetObjectiveTag("SZ"), self:GetObjectiveInfo()
+function TurtleGuide:ZONE_CHANGED(a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17, a18, a19,
+								  a20)
+	local zonetext, subzonetext, subzonetag, action, quest = GetZoneText(), GetSubZoneText(), self:GetObjectiveTag("SZ"),
+		self:GetObjectiveInfo()
 	if (action == "RUN" or action == "FLY" or action == "HEARTH" or action == "BOAT") and (subzonetext == quest or subzonetext == subzonetag or zonetext == quest or zonetext == subzonetag) then
 		self:Debug(string.format("Detected zone change %q - %q", action, quest))
 		self:SetTurnedIn()
 	end
 end
+
 TurtleGuide.ZONE_CHANGED_INDOORS = TurtleGuide.ZONE_CHANGED
 TurtleGuide.MINIMAP_ZONE_CHANGED = TurtleGuide.ZONE_CHANGED
 TurtleGuide.ZONE_CHANGED_NEW_AREA = TurtleGuide.ZONE_CHANGED
@@ -83,11 +84,9 @@ function TurtleGuide:CHAT_MSG_SYSTEM(msg)
 	end
 end
 
-
 function TurtleGuide:QUEST_WATCH_UPDATE(event)
 	if self:GetObjectiveInfo() == "COMPLETE" then self:UpdateStatusFrame() end
 end
-
 
 function TurtleGuide:QUEST_LOG_UPDATE(event)
 	local action = self:GetObjectiveInfo()
@@ -122,7 +121,6 @@ function TurtleGuide:UNIT_QUEST_LOG_CHANGED(event, unit)
 	end
 end
 
-
 function TurtleGuide:CHAT_MSG_LOOT(event, msg)
 	local action, quest = self:GetObjectiveInfo()
 	local lootitem, lootqty = self:GetObjectiveTag("L")
@@ -135,7 +133,6 @@ function TurtleGuide:CHAT_MSG_LOOT(event, msg)
 	end
 end
 
-
 function TurtleGuide:PLAYER_DEAD()
 	if self:GetObjectiveInfo() == "DIE" then
 		self:Debug("Player has died")
@@ -143,14 +140,12 @@ function TurtleGuide:PLAYER_DEAD()
 	end
 end
 
-
 function TurtleGuide:UI_INFO_MESSAGE(event, msg)
 	if msg == ERR_NEWTAXIPATH and self:GetObjectiveInfo() == "GETFLIGHTPOINT" then
 		self:Debug("Discovered flight point")
 		self:SetTurnedIn()
 	end
 end
-
 
 -- Detect NPC interaction for GETFLIGHTPOINT objectives
 local flightEventFrame = CreateFrame("Frame")
@@ -181,7 +176,6 @@ function TurtleGuide:CRAFT_SHOW()
 	end
 	if self:GetObjectiveInfo() == "PET" then self:UpdateStatusFrame() end
 end
-
 
 -- Hook GetQuestReward to track quest turnins
 local orig = GetQuestReward
@@ -320,17 +314,16 @@ function TurtleGuide:IsQuestComplete(questName)
 	return false
 end
 
-
 -- Distance-based arrival detection for travel objectives (fallback when TomTom not available)
 local arrivalCheckFrame = CreateFrame("Frame")
 local arrivalCheckElapsed = 0
-local ARRIVAL_CHECK_INTERVAL = 0.5  -- Check every 0.5 seconds
-local ARRIVAL_DISTANCE = 0.015  -- Map coordinate distance threshold (~30-50 yards)
+local ARRIVAL_CHECK_INTERVAL = 0.5 -- Check every 0.5 seconds
+local ARRIVAL_DISTANCE = 0.015     -- Map coordinate distance threshold (~30-50 yards)
 
 -- Zone name to continent/zone index lookup (built from Navigation.lua pattern)
 local zonei, zonec = {}, {}
-for ci, c in pairs({GetMapContinents()}) do
-	for zi, z in pairs({GetMapZones(ci)}) do
+for ci, c in pairs({ GetMapContinents() }) do
+	for zi, z in pairs({ GetMapZones(ci) }) do
 		zonei[z], zonec[z] = zi, ci
 	end
 end
@@ -386,7 +379,7 @@ arrivalCheckFrame:SetScript("OnUpdate", function()
 	local targetX, targetY
 	for x, y in string.gfind(note, L.COORD_MATCH) do
 		targetX, targetY = tonumber(x) / 100, tonumber(y) / 100
-		break  -- Use first coordinate found
+		break -- Use first coordinate found
 	end
 
 	if not targetX or not targetY then return end
@@ -394,16 +387,35 @@ arrivalCheckFrame:SetScript("OnUpdate", function()
 	-- Get target zone
 	local targetZone = TurtleGuide:GetObjectiveTag("Z") or TurtleGuide.zonename
 
-	-- Get player position
-	SetMapToCurrentZone()
-	local playerC, playerZ = GetCurrentMapContinent(), GetCurrentMapZone()
-	local playerX, playerY = GetPlayerMapPosition("player")
+	-- Get player position safely without interrupting the map view if open
+	local playerC, playerZ, playerX, playerY
+	local wasShown = WorldMapFrame:IsShown()
+
+	if wasShown then
+		-- If map is open, check if it's currently showing the player's zone
+		local currentZoneName = GetRealZoneText()
+		local playerZC, playerZI = zonec[currentZoneName], zonei[currentZoneName]
+		local mapC, mapZ = GetCurrentMapContinent(), GetCurrentMapZone()
+
+		if playerZC and playerZI and mapC == playerZC and mapZ == playerZI then
+			playerC, playerZ = mapC, mapZ
+			playerX, playerY = GetPlayerMapPosition("player")
+		else
+			-- Player is looking at a different map or zoomed out, skip check to avoid resetting their view
+			return
+		end
+	else
+		-- Map is hidden, safe to set to current zone and get position
+		SetMapToCurrentZone()
+		playerC, playerZ = GetCurrentMapContinent(), GetCurrentMapZone()
+		playerX, playerY = GetPlayerMapPosition("player")
+	end
 
 	-- If target zone is specified, check we're in the right zone
 	if targetZone then
 		local targetZI, targetZC = zonei[targetZone], zonec[targetZone]
 		if targetZC and targetZI and (playerC ~= targetZC or playerZ ~= targetZI) then
-			return  -- Not in target zone yet
+			return -- Not in target zone yet
 		end
 	end
 
@@ -415,7 +427,8 @@ arrivalCheckFrame:SetScript("OnUpdate", function()
 	local distance = math.sqrt(dx * dx + dy * dy)
 
 	if distance <= ARRIVAL_DISTANCE then
-		TurtleGuide:Debug(string.format("Arrived at destination: %.3f from target (threshold %.3f)", distance, ARRIVAL_DISTANCE))
+		TurtleGuide:Debug(string.format("Arrived at destination: %.3f from target (threshold %.3f)", distance,
+			ARRIVAL_DISTANCE))
 		TurtleGuide:SetTurnedIn()
 	end
 end)
