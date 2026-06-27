@@ -340,6 +340,7 @@ end
 
 
 local accepted = {}
+local acceptedDirty = true
 function TurtleGuide:UpdateOHPanel(value)
 	if not frame or not frame:IsVisible() then return end
 
@@ -366,6 +367,7 @@ function TurtleGuide:UpdateOHPanel(value)
 
 	if self.guidechanged then
 		self.guidechanged = nil
+		acceptedDirty = true
 		ResetScrollbar()
 	end
 
@@ -376,13 +378,18 @@ function TurtleGuide:UpdateOHPanel(value)
 	if offset == 0 then upbutt:Disable() else upbutt:Enable() end
 	if offset == (table.getn(self.actions) - NUMROWS) then downbutt:Disable() else downbutt:Enable() end
 
-	for i in pairs(accepted) do accepted[i] = nil end
+	if not value or acceptedDirty then
+		for i in pairs(accepted) do accepted[i] = nil end
 
-	for i in pairs(self.actions) do
-		local action, name = self:GetObjectiveInfo(i)
-		local _, _, quest = string.find(name, L.PART_FIND)
-		local _, _, part = string.find(name, ".*%(Part (%d+)%)")
-		if quest and not accepted[quest] and not self:GetObjectiveStatus(i) then accepted[quest] = name end
+		if self.actions then
+			for i in pairs(self.actions) do
+				local action, name = self:GetObjectiveInfo(i)
+				local _, _, quest = string.find(name, L.PART_FIND)
+				local _, _, part = string.find(name, ".*%(Part (%d+)%)")
+				if quest and not accepted[quest] and not self:GetObjectiveStatus(i) then accepted[quest] = name end
+			end
+		end
+		acceptedDirty = false
 	end
 
 	for i, row in ipairs(rows) do
