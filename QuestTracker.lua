@@ -318,7 +318,7 @@ end
 local arrivalCheckFrame = CreateFrame("Frame")
 local arrivalCheckElapsed = 0
 local ARRIVAL_CHECK_INTERVAL = 0.5 -- Check every 0.5 seconds
-local ARRIVAL_DISTANCE = 0.015     -- Map coordinate distance threshold (~30-50 yards)
+local ARRIVAL_DISTANCE = 0.005     -- Map coordinate distance threshold (~15-18 yards)
 
 -- Zone name to continent/zone index lookup (built from Navigation.lua pattern)
 local zonei, zonec = {}, {}
@@ -361,7 +361,8 @@ arrivalCheckFrame:SetScript("OnUpdate", function()
 	end
 
 	-- Skip if TomTom is handling arrival detection (it has callbacks)
-	if TomTom and TomTom.AddMFWaypoint then return end
+	-- Commented out to let our own robust distance-based fallback run in parallel
+	-- if TomTom and TomTom.AddMFWaypoint then return end
 
 	-- Only check if guide is loaded
 	if not TurtleGuide.current or not TurtleGuide.actions then return end

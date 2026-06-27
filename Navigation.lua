@@ -94,11 +94,8 @@ local function MapPoint(zone, x, y, desc, onArrival)
 			opts.callbacks = {
 				distance = {
 					[15] = function(event, uid, dist, lastdist)
-						-- Only trigger on approach (lastdist > dist), not when leaving
-						if lastdist and lastdist > 15 then
-							TurtleGuide:Debug("TomTom arrival callback triggered")
-							onArrival()
-						end
+						TurtleGuide:Debug("TomTom arrival callback triggered")
+						onArrival()
 					end
 				}
 			}
