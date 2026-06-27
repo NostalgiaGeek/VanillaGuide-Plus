@@ -248,15 +248,17 @@ function TurtleGuide:UpdateStatusFrame()
 
 			if action == "PET" and self.db.char.petskills[name] then return self:SetTurnedIn(i, true) end
 
-			local incomplete
-			if action == "ACCEPT" then incomplete = (not optional or hasuseitem or haslootitem or prereqturnedin) and not logi
-			elseif action == "TURNIN" then
-				-- Check server-side completion for TURNIN
+			if action == "ACCEPT" or action == "COMPLETE" or action == "TURNIN" or action == "RUN" then
 				local qid = self:GetObjectiveTag("QID", i)
-				if qid and self:IsQuestCompletedOnServer(qid) then
+				local cleanQuest = string.gsub(name, TurtleGuide.Locale.PART_GSUB, "")
+				if (qid and self:IsQuestCompletedOnServer(qid)) or self.db.char.completedquests[cleanQuest] then
 					return self:SetTurnedIn(i, true)
 				end
-				incomplete = not optional or logi
+			end
+
+			local incomplete
+			if action == "ACCEPT" then incomplete = (not optional or hasuseitem or haslootitem or prereqturnedin) and not logi
+			elseif action == "TURNIN" then incomplete = not optional or logi
 			elseif action == "COMPLETE" then incomplete = not complete and (not optional or logi)
 			elseif action == "NOTE" or action == "KILL" then incomplete = not optional or haslootitem
 			elseif action == "GRIND" then incomplete = needlevel

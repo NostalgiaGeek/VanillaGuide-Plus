@@ -373,7 +373,7 @@ function TurtleGuide:SmartSkipToStep()
 		local action = self.actions[i]
 		local qid = self:GetObjectiveTag("QID", i)
 		if qid and self.db.char.completedquestsbyid[tonumber(qid)] then
-			if action == "TURNIN" then
+			if action == "TURNIN" or action == "ACCEPT" or action == "COMPLETE" or action == "RUN" then
 				self.turnedin[quest] = true
 			end
 		end
@@ -385,7 +385,7 @@ function TurtleGuide:SmartSkipToStep()
 		local cleanQuest = string.gsub(quest, "@.*@", "")
 		cleanQuest = string.gsub(cleanQuest, TurtleGuide.Locale.PART_GSUB, "")
 		if self.db.char.completedquests[cleanQuest] then
-			if action == "TURNIN" then
+			if action == "TURNIN" or action == "ACCEPT" or action == "COMPLETE" or action == "RUN" then
 				self.turnedin[quest] = true
 			end
 		end
@@ -397,10 +397,12 @@ function TurtleGuide:SmartSkipToStep()
 		local action = self.actions[i]
 		local cleanQuest = string.gsub(quest, "@.*@", "")
 		cleanQuest = string.gsub(cleanQuest, TurtleGuide.Locale.PART_GSUB, "")
+		local qid = self:GetObjectiveTag("QID", i)
+		local isCompleted = (qid and self.db.char.completedquestsbyid[tonumber(qid)]) or self.db.char.completedquests[cleanQuest]
 
 		if action == "ACCEPT" then
 			-- If quest is in log or completed, mark as done
-			if inProgressQuests[cleanQuest] or completedQuests[cleanQuest] then
+			if inProgressQuests[cleanQuest] or completedQuests[cleanQuest] or isCompleted then
 				self.turnedin[quest] = true
 			end
 		elseif action == "TURNIN" then
@@ -408,20 +410,19 @@ function TurtleGuide:SmartSkipToStep()
 			if completedQuests[cleanQuest] and not self.turnedin[quest] then
 				furthestStep = i
 				break
-			elseif self.db.char.completedquests[cleanQuest] then
+			elseif isCompleted then
 				self.turnedin[quest] = true
 			end
 		elseif action == "COMPLETE" then
 			-- If quest is in progress but not complete, this is our step
-			if inProgressQuests[cleanQuest] and not completedQuests[cleanQuest] then
+			if inProgressQuests[cleanQuest] and not completedQuests[cleanQuest] and not isCompleted then
 				furthestStep = i
 				break
-			elseif completedQuests[cleanQuest] then
+			elseif completedQuests[cleanQuest] or isCompleted then
 				self.turnedin[quest] = true
 			end
 		elseif action == "RUN" then
 			-- Run/Travel steps with QID: auto-complete if linked quest is done
-			local qid = self:GetObjectiveTag("QID", i)
 			if qid and self.db.char.completedquestsbyid[tonumber(qid)] then
 				self.turnedin[quest] = true
 			end
